@@ -4,11 +4,10 @@ There are two parts: the compiler, which compiles down to bytecode, and the inte
 
 For a description of the language see doc/topaz.pdf and ignore the PalmOS stuff.
 
-There are a number of test scripts in the test directory.
-
 - build: make
 - compile a script: ./tc -o tower.bin test/tower.t
 - run a script: ./tr tower.bin
+- There are a number of test scripts in the test directory
 
 All files copyright (c) 2012 Mark Chenoweth and released under the MIT license.
 
