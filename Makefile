@@ -10,7 +10,7 @@ CFLAGS	 =	-g -Wall -ansi -fno-builtin
 LINK	 =	gcc
 LFLAGS	 =	
 #LFLAGS	 =	-pg
-SAVE     = 	Makefile TODO doc palm syslib testlib1 testlib2 test
+SAVE     = 	Makefile TODO doc test
 TAR	 =	tar -cvzf
 
 ####### Files

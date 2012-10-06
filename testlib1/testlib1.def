@@ -1,2 +1,0 @@
-syslib { "TestLib1" TZL1 }
-export { TopazLibOpen TopazLibClose nothing nothing TopazLibInit }
