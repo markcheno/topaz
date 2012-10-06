@@ -1,0 +1,38 @@
+#    0: adjs		2
+#    5: jmp		36
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushreal	3.1415
+#   25: setfield	0
+#   30: nop
+#   31: rts		2
+#   36: pushreal	3.1415
+#   41: pushint		2
+#   46: mul
+#   47: setglobal	0
+#   52: newclass	1
+#   57: setglobal	1
+#   62: pushint		0
+#   67: getglobal	1
+#   72: pushint		1
+#   77: call		new
+#   82: pop
+#   83: pushint		0
+#   88: getglobal	1
+#   93: pushint		1
+#   98: jsr		10
+#  103: pop
+#  104: pushint		0
+#  109: pushstring	'PI = '
+#  120: getglobal	1
+#  125: getfield	0
+#  130: pushint		2
+#  135: call		println
+#  140: pop
+#  141: pushint		0
+#  146: pushstring	'TWOPI = '
+#  160: getglobal	0
+#  165: pushint		2
+#  170: call		println
+#  175: pop
+#  176: halt

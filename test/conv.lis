@@ -1,0 +1,33 @@
+#    0: adjs		2
+#    5: pushreal	3.1415
+#   10: setglobal	0
+#   15: pushint		0
+#   20: getglobal	0
+#   25: pushint		1
+#   30: call		is_r
+#   35: jz		84
+#   40: pushint		0
+#   45: pushstring	'(real) pi = '
+#   63: getglobal	0
+#   68: pushint		2
+#   73: call		println
+#   78: pop
+#   79: jmp		84
+#   84: pushint		0
+#   89: getglobal	0
+#   94: pushint		1
+#   99: call		to_i
+#  104: setglobal	1
+#  109: pushint		0
+#  114: getglobal	1
+#  119: pushint		1
+#  124: call		is_i
+#  129: jz		177
+#  134: pushint		0
+#  139: pushstring	'(int) pi = '
+#  156: getglobal	1
+#  161: pushint		2
+#  166: call		println
+#  171: pop
+#  172: jmp		177
+#  177: halt

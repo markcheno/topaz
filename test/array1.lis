@@ -1,0 +1,78 @@
+#    0: adjs		2
+#    5: pushint		5
+#   10: newarray
+#   11: dup
+#   12: pushint		0
+#   17: pushint		4
+#   22: pushint		0
+#   27: setslice
+#   28: setglobal	0
+#   33: pushint		0
+#   38: setglobal	1
+#   43: getglobal	1
+#   48: pushint		5
+#   53: lss
+#   54: jnz		85
+#   59: jmp		160
+#   64: getglobal	1
+#   69: pushint		1
+#   74: add
+#   75: setglobal	1
+#   80: jmp		43
+#   85: getglobal	0
+#   90: getglobal	1
+#   95: getglobal	1
+#  100: pushint		1
+#  105: add
+#  106: setarray
+#  107: pushint		0
+#  112: pushstring	'a['
+#  120: getglobal	1
+#  125: pushstring	']='
+#  133: getglobal	0
+#  138: getglobal	1
+#  143: getarray
+#  144: pushint		4
+#  149: call		println
+#  154: pop
+#  155: jmp		64
+#  160: pushint		0
+#  165: pushint		0
+#  170: call		println
+#  175: pop
+#  176: getglobal	0
+#  181: pushint		3
+#  186: pushint		1
+#  191: setarray
+#  192: getglobal	0
+#  197: pushint		2
+#  202: getglobal	0
+#  207: pushint		4
+#  212: getarray
+#  213: pushint		2
+#  218: add
+#  219: setarray
+#  220: pushint		0
+#  225: setglobal	1
+#  230: getglobal	1
+#  235: pushint		5
+#  240: lss
+#  241: jnz		272
+#  246: jmp		325
+#  251: getglobal	1
+#  256: pushint		1
+#  261: add
+#  262: setglobal	1
+#  267: jmp		230
+#  272: pushint		0
+#  277: pushstring	'a['
+#  285: getglobal	1
+#  290: pushstring	']='
+#  298: getglobal	0
+#  303: getglobal	1
+#  308: getarray
+#  309: pushint		4
+#  314: call		println
+#  319: pop
+#  320: jmp		251
+#  325: halt

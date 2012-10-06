@@ -1,0 +1,108 @@
+#    0: adjs		1
+#    5: jmp		269
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		1
+#   25: setfield	0
+#   30: getlocal	-2
+#   35: pushint		2
+#   40: setfield	1
+#   45: jmp		75
+#   50: link		0
+#   55: getlocal	-2
+#   60: getfield	0
+#   65: setlocal	-3
+#   70: rts		2
+#   75: jmp		105
+#   80: link		0
+#   85: getlocal	-2
+#   90: getlocal	-3
+#   95: setfield	0
+#  100: rts		3
+#  105: jmp		154
+#  110: link		0
+#  115: pushint		0
+#  120: pushstring	'x='
+#  128: getlocal	-2
+#  133: getfield	0
+#  138: pushint		2
+#  143: call		println
+#  148: pop
+#  149: rts		2
+#  154: jmp		184
+#  159: link		0
+#  164: getlocal	-2
+#  169: getfield	1
+#  174: setlocal	-3
+#  179: rts		2
+#  184: jmp		214
+#  189: link		0
+#  194: getlocal	-2
+#  199: getlocal	-3
+#  204: setfield	1
+#  209: rts		3
+#  214: jmp		263
+#  219: link		0
+#  224: pushint		0
+#  229: pushstring	'y='
+#  237: getlocal	-2
+#  242: getfield	1
+#  247: pushint		2
+#  252: call		println
+#  257: pop
+#  258: rts		2
+#  263: nop
+#  264: rts		2
+#  269: newclass	2
+#  274: setglobal	0
+#  279: pushint		0
+#  284: getglobal	0
+#  289: pushint		1
+#  294: call		new
+#  299: pop
+#  300: pushint		0
+#  305: getglobal	0
+#  310: pushint		1
+#  315: jsr		10
+#  320: pop
+#  321: pushint		0
+#  326: getglobal	0
+#  331: pushint		1
+#  336: jsr		110
+#  341: pop
+#  342: pushint		0
+#  347: getglobal	0
+#  352: pushint		1
+#  357: jsr		219
+#  362: pop
+#  363: pushint		0
+#  368: pushint		100
+#  373: getglobal	0
+#  378: pushint		2
+#  383: jsr		80
+#  388: pop
+#  389: pushint		0
+#  394: pushint		200
+#  399: getglobal	0
+#  404: pushint		2
+#  409: jsr		189
+#  414: pop
+#  415: pushint		0
+#  420: pushstring	'z.x='
+#  430: pushint		0
+#  435: getglobal	0
+#  440: pushint		1
+#  445: jsr		50
+#  450: pushint		2
+#  455: call		println
+#  460: pop
+#  461: pushint		0
+#  466: pushstring	'z.y='
+#  476: pushint		0
+#  481: getglobal	0
+#  486: pushint		1
+#  491: jsr		159
+#  496: pushint		2
+#  501: call		println
+#  506: pop
+#  507: halt

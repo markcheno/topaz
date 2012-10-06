@@ -1,0 +1,45 @@
+Default
+pi (f)     = 3.1415
+
+right justified
+pi (7.0f)  =       3
+pi (7.1f)  =     3.1
+pi (7.2f)  =    3.14
+pi (7.3f)  =   3.141
+pi (7.4f)  =  3.1415
+
+right justified with negative
+-pi (7.0f)  =      -3
+-pi (7.1f)  =    -3.1
+-pi (7.2f)  =   -3.14
+-pi (7.3f)  =  -3.141
+-pi (7.4f)  = -3.1415
+
+right justified with plus
+pi (+7.0f) =      +3
+pi (+7.1f) =    +3.1
+pi (+7.2f) =   +3.14
+pi (+7.3f) =  +3.141
+pi (+7.4f) = +3.1415
+
+left justified
+pi (-7.0f)  = 3      
+pi (-7.1f)  = 3.1    
+pi (-7.2f)  = 3.14   
+pi (-7.3f)  = 3.141  
+pi (-7.4f)  = 3.1415 
+
+left justified with negative
+-pi (-7.0f) = -3     
+-pi (-7.1f) = -3.1   
+-pi (-7.2f) = -3.14  
+-pi (-7.3f) = -3.141 
+-pi (-7.4f) = -3.1415
+
+left justified with plus
+pi (-+7.0f) = +3     
+pi (-+7.1f) = +3.1   
+pi (-+7.2f) = +3.14  
+pi (-+7.3f) = +3.141 
+pi (-+7.4f) = +3.1415
+

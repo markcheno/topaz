@@ -1,0 +1,3345 @@
+#LyX 1.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 218
+\textclass article
+\language english
+\inputencoding latin1
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+
+\layout Title
+
+The Topaz Programming Language
+\layout Author
+
+Mark Chenoweth
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+Introduction
+\layout Subsection
+
+Language Features
+\layout Standard
+
+Topaz is a powerful, light-weight, efficient programming language specifically
+ designed for the PalmOS Computing Platform.
+ It is dynamically typed, interpreted from byte-code, has automatic memory
+ management, object oriented features, access to native PalmOS gui widgets
+ and more.
+\layout Standard
+\added_space_top medskip \align left 
+Topaz also Features:
+\layout Itemize
+
+A simple, short, and flexible syntax 
+\layout Itemize
+
+A simple Class/Object model for object oriented programming 
+\layout Itemize
+
+Built in floating point math and basic functions (sin,cos,tan,etc...) 
+\layout Itemize
+
+Built in graphics functions (drawpoint,drawline,drawrect,etc...) 
+\layout Itemize
+
+Built in native user interface classes (Button,Field,CheckBox,etc...) 
+\layout Itemize
+
+Automatic type conversion 
+\layout Itemize
+
+Easy string handling 
+\layout Itemize
+
+Integrated editor/compiler/interpreter
+\layout Itemize
+
+A single, small (<70k) .prc file with no extra libraries needed 
+\layout Itemize
+
+Good documentation
+\layout Standard
+\noindent \align left 
+Topaz is NOT:
+\layout Itemize
+
+Meant to create complex multi-form applications 
+\layout Itemize
+
+Meant to replace more mature programming languages
+\layout Subsection
+
+Quick Start
+\layout Standard
+
+To create and run the canonical 
+\begin_inset Quotes eld
+\end_inset 
+
+hello, world
+\begin_inset Quotes erd
+\end_inset 
+
+ program:
+\layout Enumerate
+
+Install topaz.prc into your Palm device running PalmOS V3.0 or greater and
+ launch Topaz.
+\layout Enumerate
+
+Press the 
+\begin_inset Quotes eld
+\end_inset 
+
+New
+\begin_inset Quotes erd
+\end_inset 
+
+ button on the Main Form to create a new program and display the Editor
+ Form.
+\layout Enumerate
+
+Enter this program: 
+\begin_deeper 
+\layout LyX-Code
+
+# Hello world example
+\layout LyX-Code
+
+println('hello, world')
+\end_deeper 
+\layout Enumerate
+
+To execute the program, press the 
+\begin_inset Quotes eld
+\end_inset 
+
+Run
+\begin_inset Quotes erd
+\end_inset 
+
+ button.
+ The Output Form will appear, and 
+\begin_inset Quotes eld
+\end_inset 
+
+hello, world
+\begin_inset Quotes erd
+\end_inset 
+
+ should be printed on it.
+ If there are any errors, an error dialog box will notify you.
+\layout Enumerate
+
+After the program completes executing, the Output Form will continue to
+ be displayed.
+ You may return to either the Editor or the Main Form by selecting the Menu
+ icon, and then Goto|Editor or Goto|Main.
+\layout Enumerate
+
+Basic program structure is as follows: 
+\begin_deeper 
+\layout Itemize
+
+The main form will always display the first line of a program as the program
+ title, so programs generally start with a one line descriptive comment
+ followed by one or more statements.
+\layout Itemize
+
+Comments begin with a 
+\family typewriter 
+#
+\family default 
+ and continue until the end of the line.
+\layout Itemize
+
+Follow the initial comment with one or more statements.
+\end_deeper 
+\layout Standard
+
+For a more complicated example, try this:
+\layout LyX-Code
+
+# Scribble Demo 
+\layout LyX-Code
+
+btn = Button.new 
+\layout LyX-Code
+
+btn.setXY(10,125) 
+\layout LyX-Code
+
+btn.setSize(40,20) 
+\layout LyX-Code
+
+btn.setLabel('Clear') 
+\layout LyX-Code
+
+btn.show
+\layout LyX-Code
+
+while true 
+\layout LyX-Code
+
+  e=event(100); y=peny 
+\layout LyX-Code
+
+  if e==btn.id then 
+\layout LyX-Code
+
+    eraserect(0,0,160,120) 
+\layout LyX-Code
+
+  elsif y < 115 
+\layout LyX-Code
+
+    drawrect(penx,y,3,3) 
+\layout LyX-Code
+
+  end 
+\layout LyX-Code
+
+end
+\layout Section
+
+Language Syntax
+\layout Subsection
+
+Program Structure
+\layout Standard
+
+A Topaz program consists of a series of statements, interspersed with any
+ function and/or class definitions.
+ Statement, function, and class definitions can be declared in any order,
+ anywhere in a program, but may not be referenced until after they are declared.
+\layout Standard
+\added_space_top medskip \align left 
+By convention, the Main form of the IDE displays the first line of a program
+ as a title of the program.
+ Therefore it is a good idea (but not required) to start a program with
+ a one line descriptive comment.
+ Follow that with any global variable declarations, then any function or
+ class definitions, and finally program statements.
+\layout Standard
+\added_space_top medskip \align left 
+Semi-colons can be used to separate statements for clarity, but are not
+ required.
+\layout Subsection
+
+Lexical Conventions
+\layout Standard
+
+Identifiers in Topaz can be any string of letters, digits, and underscores,
+ up to sixteen characters long and must begin with a letter.
+ 
+\layout Standard
+\added_space_top medskip \align left 
+The following identifiers are keywords, and may not be used otherwise:
+\layout Standard
+\added_space_top medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="5" columns="5">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+and
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+break
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+case
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+class
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+def
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="true">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+do
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+else
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+elsif
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+end
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+for
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+if
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+mod
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+not
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+or
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+private
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+protected
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+public
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+return
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+self
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+super
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+then
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+unless
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+until
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+when
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+while
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+\added_space_top medskip \align left 
+The following strings denote other tokens recognized by the parser:
+\layout LyX-Code
+\align center 
+( ) [ ] { } .
+ ; , & + - * / || && == = > >= < <= <> !
+\layout Standard
+\added_space_top medskip \align left 
+And the following keywords are reserved for future use:
+\layout LyX-Code
+\align center 
+in include foreach module next require static
+\layout Standard
+\added_space_top medskip \align left 
+Topaz is a case sensitive language.
+ 
+\begin_inset Quotes eld
+\end_inset 
+
+Case
+\begin_inset Quotes erd
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+case
+\begin_inset Quotes erd
+\end_inset 
+
+ are two separate identifiers.
+\layout Standard
+\added_space_top medskip \align left 
+
+\emph on 
+String Constants
+\emph default 
+ can be up to 64 characters long, delimited by matching single or double
+ quotes, and can contain the C-like escape sequences: 
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align left 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="6" columns="2">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="right" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+new line:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+
+\backslash 
+n
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+carriage return:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+
+\backslash 
+r
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="right" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+double quote:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+
+\backslash 
+
+\begin_inset Quotes erd
+\end_inset 
+
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+single quote:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+
+\backslash 
+'
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+tab:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+
+\backslash 
+t
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+backslash:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+
+\backslash 
+
+\backslash 
+
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+\align left 
+Examples of valid string constants are:
+\layout Itemize
+
+
+\family typewriter 
+"hello, world" 
+\layout Itemize
+
+
+\family typewriter 
+'Programming should be fun' 
+\layout Itemize
+
+
+\family typewriter 
+"This 
+\backslash 
+'word
+\backslash 
+' is quoted"
+\layout Standard
+
+
+\emph on 
+Numerical Constants -
+\emph default 
+ Standard octal, hexadecimal, and scientific notation is supported for numerical
+ constants.
+ Examples of valid numerical constants are:
+\layout Itemize
+
+
+\family typewriter 
+42
+\layout Itemize
+
+0377
+\layout Itemize
+
+
+\family typewriter 
+0xffff
+\layout Itemize
+
+
+\family typewriter 
+3.14159 
+\layout Itemize
+
+
+\family typewriter 
+707e-3 
+\layout Itemize
+
+
+\family typewriter 
+1.45E5
+\layout Standard
+
+
+\emph on 
+Whitespace
+\emph default 
+ is ignored outside of string constants and consists of: blanks, tabs, newlines,
+ and carriage returns.
+\layout Standard
+\added_space_top medskip \align left 
+
+\emph on 
+Comments
+\emph default 
+ are introduced with a 
+\family typewriter 
+#
+\family default 
+ and continue until the next new line character.
+\layout Subsection
+
+Data Types
+\layout Subsubsection
+
+Primitive Types
+\layout Standard
+
+There are three primitive types built into Topaz: 
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="3" columns="2">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="left" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="left" valignment="top" leftline="false" rightline="false" width="" special="">
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="left" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Integer
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="left" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+a 32 bit signed integer
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+String
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+a single or double quote delimited string not more than 64 characters long
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Real
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+a 32 bit IEEE single precision float
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+\align left 
+In addition to the basic data types, Topaz also supports Arrays, Hashes,
+ and Objects.
+\layout Subsubsection
+
+Arrays
+\layout Standard
+\align left 
+Arrays are created by assigning an 
+\emph on 
+array initializer
+\emph default 
+ to a variable.
+ An array initializer is a comma-separated string of values between square
+ brackets.
+ You can use the special 
+\emph on 
+array repeat operator
+\emph default 
+ to easily assign multiple values.
+ For example:
+\layout LyX-Code
+
+arr = [ 1, 3.14159, 
+\begin_inset Quotes erd
+\end_inset 
+
+some text
+\begin_inset Quotes erd
+\end_inset 
+
+, 7x0 ]
+\layout Standard
+
+will create an array of ten elements -
+\layout LyX-Code
+
+arr[0] = 1
+\layout LyX-Code
+
+arr[1] = 3.14159
+\layout LyX-Code
+
+arr[2] = 
+\begin_inset Quotes erd
+\end_inset 
+
+some text
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout LyX-Code
+
+arr[3] = 0
+\layout LyX-Code
+
+\layout LyX-Code
+
+arr[9] = 0
+\layout Standard
+
+The format of the array repeat operator is: 
+\emph on 
+count
+\emph default 
+ 
+\family typewriter 
+x
+\family default 
+ 
+\emph on 
+value.
+ 
+\emph default 
+The count must be an integer constant, the 
+\begin_inset Quotes eld
+\end_inset 
+
+
+\family typewriter 
+x
+\family default 
+
+\begin_inset Quotes erd
+\end_inset 
+
+ must be lowercase, and the value can be any valid expression.
+ It is only valid inside array initializers.
+ 
+\layout Standard
+\added_space_top medskip \align left 
+You can also create n dimension arrays by assigning arrays to array elements.
+ For example:
+\layout LyX-Code
+
+arr = [ 0, 1, [10,20] ]
+\layout Standard
+
+will create an array with three elements, the third being another array,
+ and containing the following values:
+\layout LyX-Code
+
+arr[0]    = 0
+\layout LyX-Code
+
+arr[1]    = 1
+\layout LyX-Code
+
+arr[2][0] = 10
+\layout LyX-Code
+
+arr[2][1] = 20
+\layout Standard
+\added_space_top medskip \align left 
+Array indexes always start at zero and continue to length-1 .
+ It is a runtime error to try to access arrays with an invalid index.
+ Memory to hold arrays is allocated from the heap, and can be freed by simply
+ assigning a zero to the array variable.
+\layout Standard
+\added_space_top medskip \align left 
+Individual characters of a string variable may be accessed like an array.
+ For example, after executing the two statements:
+\layout LyX-Code
+
+month = 
+\begin_inset Quotes erd
+\end_inset 
+
+November
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout LyX-Code
+
+first = month[0]
+\layout Standard
+
+the variable 
+\family typewriter 
+first
+\family default 
+ will contain an integer with the value of 78 (the ascii value of 
+\begin_inset Quotes eld
+\end_inset 
+
+N
+\begin_inset Quotes erd
+\end_inset 
+
+).
+\layout Subsubsection
+
+Hashes
+\layout Standard
+\align left 
+Hashes can be created with 
+\emph on 
+hash initializers
+\emph default 
+, or by simply assigning key/value pairs.
+ A hash initializer is a list of key/value pairs between braces.
+ Key are separated from values by the sequence 
+\begin_inset Quotes eld
+\end_inset 
+
+=>
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ The key value pairs are separated with commas.
+ For example, the next two statements:
+\layout LyX-Code
+
+months = { 
+\begin_inset Quotes erd
+\end_inset 
+
+Jan
+\begin_inset Quotes erd
+\end_inset 
+
+ => 1, 
+\begin_inset Quotes erd
+\end_inset 
+
+Feb
+\begin_inset Quotes erd
+\end_inset 
+
+ => 2 }
+\layout LyX-Code
+
+months{
+\begin_inset Quotes erd
+\end_inset 
+
+Mar
+\begin_inset Quotes erd
+\end_inset 
+
+} = 3
+\layout Standard
+
+will first create a hash with two elements, and then add another.
+ The final result will be -
+\layout LyX-Code
+
+months{
+\begin_inset Quotes erd
+\end_inset 
+
+Jan
+\begin_inset Quotes erd
+\end_inset 
+
+} = 1
+\layout LyX-Code
+
+months{
+\begin_inset Quotes erd
+\end_inset 
+
+Feb
+\begin_inset Quotes erd
+\end_inset 
+
+} = 2
+\layout LyX-Code
+
+months{
+\begin_inset Quotes erd
+\end_inset 
+
+Mar
+\begin_inset Quotes erd
+\end_inset 
+
+} = 3
+\layout Standard
+
+Memory for hashes is allocated from the heap, and can be freed by simply
+ assigning a zero to the hash variable.
+\layout Subsubsection
+
+Objects
+\layout Standard
+
+Objects are 32 bit references to an object instance that are created by
+ instantiating a class using its 
+\family typewriter 
+new
+\family default 
+ method.
+ 
+\layout Subsection
+
+Variables and Constants
+\layout Standard
+
+Topaz variables are type-less and are declared by assigning a value to them
+ with an assignment statement.
+ The 
+\emph on 
+value
+\emph default 
+ of a variable has a type associated with it.
+\layout Itemize
+
+Variables start with a lowercase letter, and are followed by up to 15 other
+ letters, numbers, or underscore characters.
+ 
+\layout Itemize
+
+Constants start with an uppercase letter, and are followed by up to 15 other
+ letters, numbers, or underscore characters.
+ Once a constant is defined, it is a compile-time error to attempt to redefine
+ it.
+\layout Subsection
+
+Expressions and Operators
+\layout Subsubsection
+
+Expressions
+\layout Standard
+
+Expressions combine variables and constants (the operands) with operators
+ to produce new values.
+ 
+\layout Subsubsection
+
+Operators
+\layout Standard
+\added_space_top medskip \align left 
+Topaz supports a standard set of operators.
+ The following table lists all the operators and the types they operate
+ on:
+\layout Standard
+\added_space_top 0.3cm \added_space_bottom 0.3cm \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="7" columns="8">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="right" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="left" valignment="top" leftline="false" rightline="false" width="" special="">
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="right" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\bar under 
+ 
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="false" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="left" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\emph on 
+\bar under 
+Valid operand types
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="right" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+logical negation:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+not
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+!
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="left" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+integer
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+multiplicative:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+*
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+/
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+integer or real
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+modulus:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+mod
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+%
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+integer
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+additive:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
++
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+-
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+integer or real
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+bitwise logical:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+and
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+&&
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+or
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+||
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+integer
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+relational:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+==
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+<>
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+<
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+<=
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+>
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+>=
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+integer or real
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+\added_space_top medskip \align left 
+Note that are are two operators with identical functions for the 
+\emph on 
+logcial negation, modulus
+\emph default 
+, 
+\emph on 
+bitwise and
+\emph default 
+ and 
+\emph on 
+bitwise or
+\emph default 
+ operators.The logical negation operators only operate on a single operand.
+ All the rest operate on two operands.
+ Parenthesis can be used to group expressions together.
+ 
+\layout Subsubsection
+
+Operator Precedence
+\layout Standard
+\added_space_top medskip \align left 
+Operator precedence is similar to PASCAL where there are only four levels
+ of operator precedence:
+\layout Standard
+\added_space_top medskip \align center 
+
+\begin_inset  Tabular
+<lyxtabular version="2" rows="4" columns="7">
+<features rotate="false" islongtable="false" endhead="0" endfirsthead="0" endfoot="0" endlastfoot="0">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<column alignment="center" valignment="top" leftline="false" rightline="false" width="" special="">
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Highest:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+not
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+!
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+*
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+/
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+and
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+&&
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+mod
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+%
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
++
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+-
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+or
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+||
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+\end_inset 
+</cell>
+</row>
+<row topline="false" bottomline="false" newpage="false">
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+Lowest:
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+==
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+<>
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+<
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+<=
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+>
+\end_inset 
+</cell>
+<cell multicolumn="0" alignment="center" valignment="top" topline="true" bottomline="false" leftline="false" rightline="false" rotate="false" usebox="none" width="" special="">
+\begin_inset Text
+
+\layout Standard
+
+
+\family typewriter 
+>=
+\end_inset 
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset 
+
+
+\layout Standard
+\added_space_top medskip \align left 
+Operators at the same precedence level are evaluated from left to right.
+ When in doubt, use parenthesis to group your expressions together.
+\layout Subsubsection
+
+Automatic Type Conversion
+\layout Standard
+
+Topaz provides automatic type conversion between values during runtime.
+ When an arithmetic expression is being evaluated using the relational,
+ addititive or multiplicative operators, the two operands will automatically
+ be converted according to the following rules:
+\layout Enumerate
+
+If an operand is a string, it will be converted to a real if there is a
+ decimal point present.
+ Otherwise, it will be converted to an integer.
+\layout Enumerate
+
+If both operand types are ints or reals, the resulant type is the same as
+ the operands.
+\layout Enumerate
+
+An integer and a real make a real.
+\layout Standard
+
+For example:
+\layout Itemize
+
+1 + 3.1415 = 4.1415 
+\layout Itemize
+
+1 + "2.0" = 3.0 
+\layout Itemize
+
+"1.5" + 2.0 = 3.5
+\layout Itemize
+
+
+\begin_inset Quotes erd
+\end_inset 
+
+10
+\begin_inset Quotes erd
+\end_inset 
+
+ + 
+\begin_inset Quotes erd
+\end_inset 
+
+20
+\begin_inset Quotes erd
+\end_inset 
+
+ = 30
+\layout Subsection
+
+Statements
+\layout Standard
+\added_space_top medskip \align left 
+When describing the syntax of Topaz statements, optional keywords are enclosed
+ by square brackets.
+\layout Subsubsection
+
+The assignment statement
+\layout LyX-Code
+\added_space_top medskip 
+
+\emph on 
+Lhs
+\emph default 
+ = 
+\emph on 
+Expr
+\layout Standard
+\added_space_top medskip \align left 
+The assignment statement is used to declare variables as well as assign
+ new values to existing variables.
+ The left hand side can be a new or existing variable.
+ The right hand side can be any normal expression, array initializer, hash
+ initializer, or function or method call.
+\layout Subsubsection
+
+The 
+\family typewriter 
+if
+\family default 
+ statement
+\layout Standard
+\added_space_top medskip \align left 
+The basic format of the 
+\family typewriter 
+if
+\family default 
+ statement is as follows:
+\layout LyX-Code
+\added_space_top medskip 
+if 
+\emph on 
+condition
+\emph default 
+ [then]
+\layout LyX-Code
+
+
+\emph on 
+  statementlist
+\layout LyX-Code
+
+elsif 
+\emph on 
+condition
+\emph default 
+ [then]
+\layout LyX-Code
+
+
+\emph on 
+  statementlist
+\layout LyX-Code
+
+else
+\layout LyX-Code
+
+
+\emph on 
+  statementlist
+\layout LyX-Code
+\added_space_top medskip 
+end
+\layout Standard
+\added_space_top medskip \align left 
+The condition is an expression which controls what the rest of the statement
+ will do.
+ If condition is true, the the next block of code will be executed.
+ The 
+\family typewriter 
+elsif
+\family sans 
+ and 
+\family typewriter 
+else
+\family default 
+ blocks are optional.
+ Note however that unlike certain other languages, the 
+\family typewriter 
+end
+\family default 
+ keyword is required.
+\layout Subsubsection
+
+The 
+\family typewriter 
+unless
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+unless 
+\emph on 
+condition
+\emph default 
+ [then] 
+\layout LyX-Code
+
+  
+\emph on 
+statementlist 
+\layout LyX-Code
+
+else
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\layout LyX-Code
+
+end
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+unless
+\family default 
+ statement is similar the the 
+\family typewriter 
+if
+\family default 
+ statement, except that the next block of code will be executed when when
+ the condition is false.
+ The 
+\family typewriter 
+else
+\family default 
+ block is optional.
+\layout Subsubsection
+
+The 
+\family typewriter 
+case
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+case 
+\emph on 
+expression
+\layout LyX-Code
+
+when 
+\emph on 
+condition
+\emph default 
+ [then]
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\layout LyX-Code
+
+else
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\layout LyX-Code
+
+end
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+case
+\family default 
+ statement is yet another form of the 
+\family typewriter 
+if
+\family default 
+ statement.
+ The expression after the case keyword is evaluated.
+ If the result matches the value of the expression in one of the 
+\family typewriter 
+when
+\family default 
+ or 
+\family typewriter 
+else
+\family default 
+ statements, then that block of code will be executed.
+ There can be zero or more 
+\family typewriter 
+when
+\family default 
+ blocks and zero or one 
+\family typewriter 
+else
+\family default 
+ blocks.
+\layout Subsubsection
+
+The 
+\family typewriter 
+for
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+for( 
+\emph on 
+init
+\emph default 
+; 
+\emph on 
+condition
+\emph default 
+; 
+\emph on 
+incr
+\emph default 
+ )
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\emph default 
+ 
+\layout LyX-Code
+
+end
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+for
+\family default 
+ statement is very similar its C language counterpart.
+ The 
+\emph on 
+init
+\emph default 
+ part is an assignment statement which is executed at the beginning of the
+ loop.
+ Then 
+\emph on 
+condition
+\emph default 
+ is evaluated, and while it is true, the 
+\emph on 
+statementlist
+\emph default 
+ will be executed.
+ At the end of the loop, 
+\emph on 
+incr
+\emph default 
+ is evaluated, and the loop starts over.
+ All three parts (init,condition,incr) are optional.
+\layout Subsubsection
+
+The 
+\family typewriter 
+while
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+while 
+\emph on 
+condition
+\emph default 
+ [do] 
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\layout LyX-Code
+
+end
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+while
+\family default 
+ statement is the simplest of loops.
+ The condition part is evaluated at the beginning of each loop, and while
+ true, the statement list will be executed.
+ 
+\layout Subsubsection
+
+The 
+\family typewriter 
+until
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+until 
+\emph on 
+condition
+\emph default 
+ [do]
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\layout LyX-Code
+
+end
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+until
+\family default 
+ statement is the opposite of the while.
+ The condition part is evaluated at the beginning of each loop, and while
+ false, the statement list will be executed.
+ 
+\layout Subsubsection
+
+The 
+\family typewriter 
+break
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+break
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+break
+\family default 
+ statement is used to break out of 
+\family typewriter 
+for
+\family default 
+, 
+\family typewriter 
+while
+\family default 
+, and 
+\family typewriter 
+until
+\family default 
+ loops.
+ It transfers control to the next statement after the loop.
+\layout Subsubsection
+
+The 
+\family typewriter 
+return
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+return 
+\emph on 
+expression
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+return
+\family default 
+ statement is used to return from functions and class methods.
+ 
+\emph on 
+expression
+\emph default 
+ is the optional return value.
+\layout Subsubsection
+
+The 
+\family typewriter 
+public
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+public
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+publi
+\family default 
+c statement is only valid within class definitions and signals that any
+ following fields or methods will be publicly available.
+\layout Subsubsection
+
+The 
+\family typewriter 
+protected
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+protected
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+protected
+\family default 
+ statement is only valid within class definitions and signals that any following
+ fields or methods will be protected.
+ That is, they are only visible within the class they are defined and to
+ sublcasses.
+\layout Subsubsection
+
+The 
+\family typewriter 
+private
+\family default 
+ statement
+\layout LyX-Code
+\added_space_top medskip 
+private
+\layout Standard
+\added_space_top medskip \align left 
+The 
+\family typewriter 
+private
+\family default 
+ statement is only valid within class definitions and signals that any following
+ fields or methods will be private.
+ That is, they are only visible within the class they are defined in.
+\layout Subsection
+
+Functions
+\layout Standard
+\added_space_top medskip \align left 
+Functions in Topaz are similar to functions in most other procedural programming
+ languages.
+ Their basic syntax is:
+\layout LyX-Code
+
+def 
+\emph on 
+functionname
+\emph default 
+(
+\emph on 
+param
+\emph default 
+1,param2,)
+\layout LyX-Code
+
+  
+\emph on 
+statementlist
+\layout LyX-Code
+
+end
+\layout Standard
+
+The params enclosed by parenthesis are optional.
+ The 
+\family typewriter 
+return
+\family default 
+ statement can optionally be used to return a value.
+\layout Standard
+\added_space_top medskip \align left 
+Functions can be defined anywhere in a program, but can only be referenced
+ after they are defined.
+ Any new variables declared within a function are considered local variables
+ and are only visible within that function.
+ Any variables, functions, or classes declared in the global scope before
+ the current function definition will also be visible.
+\layout Subsection
+
+Classes
+\layout Standard
+\added_space_top medskip \align left 
+The basic sytax of a class definition is:
+\layout LyX-Code
+
+class 
+\emph on 
+Name
+\emph default 
+ < 
+\emph on 
+Superclass
+\layout LyX-Code
+
+  
+\emph on 
+body
+\layout LyX-Code
+
+end
+\layout Standard
+
+The class name must begin with an uppcase letter.
+ The sequence
+\family typewriter 
+ < 
+\emph on 
+Superclass
+\family default 
+\emph default 
+ is optional.
+ A class body consists of a series of one or more field and method definitions.
+ By default, everything in a class has public scope.
+ The 
+\family typewriter 
+public
+\family default 
+,
+\family sans 
+ 
+\family typewriter 
+protected
+\family default 
+, and 
+\family typewriter 
+private
+\family default 
+ statements can be used the change the visibility of following definitions.
+\layout Subsubsection
+
+Instantiation
+\layout Standard
+
+Every class implicitly has a 
+\family typewriter 
+new
+\family default 
+ method which will automatically create a new object and initialize its
+ fields.
+ For example:
+\layout LyX-Code
+
+point = Point3D.new
+\layout Standard
+
+will create a new object of class Point3D and assign a reference of it to
+ the variable point.
+\layout Subsubsection
+
+Fields
+\layout Standard
+
+Class fields must be initialized with static values - either int, real,
+ string, hash or array.
+ You cannot intialize a field with an object.
+\layout Subsubsection
+
+Methods
+\layout Standard
+
+Class methods are simply functions declared within a class definition.
+ The syntax is exactly the same.
+ A method with the name 
+\family typewriter 
+init
+\family default 
+ is considered a class constructor.
+ See the section on class constructors.
+\layout Subsubsection
+
+Scope
+\layout Standard
+\align left 
+Class fields an methods can be at one of three scope levels: 
+\layout List
+\labelwidthstring 00.00.0000
+
+Public - visible anywhere within it's class after its declaration, and in
+ any instantiated objects.
+\layout List
+\labelwidthstring 00.00.0000
+
+Protected - visible within the class it is defined in, and any subclasses
+\layout List
+\labelwidthstring 00.00.0000
+
+Private - visible only within the class it is defined in
+\layout Standard
+
+By default, everything in a class is public.
+ You can change the scope using the public, protected, or private keywords.
+\layout Standard
+\added_space_top medskip \align left 
+Class fields and method declarations only belong to the class they are defined
+ in, therefore they can and will override any previous identifiers.
+\layout Subsubsection
+
+Constructors
+\layout Standard
+\align left 
+Class fields are automatically initialized when a classes 
+\family typewriter 
+new
+\family default 
+ method is called.
+ In addition, you may create a user defined class initializer method called
+ 
+\family typewriter 
+init
+\family default 
+.
+ If the 
+\family typewriter 
+init
+\family default 
+ method declaration does not have any formal parameters, it will be automaticall
+y called right after the fields are initialized.
+ If it does have parameters, you can pass them via the 
+\family typewriter 
+new
+\family default 
+ call.
+ If it does have parameters and you do not pass them via the new call, the
+ 
+\family typewriter 
+init
+\family default 
+ method will not automatically be called, however you may explicitly call
+ it yourself (with the proper number of parameters).
+ When a class is instantiated all of its superclasses fields will be initialized
+, however you must explicitly call any 
+\family typewriter 
+init
+\family default 
+ methods.
+ Generally you would call a superclasses 
+\family typewriter 
+init
+\family default 
+ method from the base classes 
+\family typewriter 
+init
+\family default 
+ method.
+ For example:
+\layout LyX-Code
+
+class Point2D
+\layout LyX-Code
+
+  x=0; y=0
+\layout LyX-Code
+
+  def init(x,y)
+\layout LyX-Code
+
+   self.x=x; self.y=y
+\layout LyX-Code
+
+  end
+\layout LyX-Code
+
+end
+\layout LyX-Code
+
+class Point3D < Point2D
+\layout LyX-Code
+
+  z=0
+\layout LyX-Code
+
+  def init(xx,yy,zz)
+\layout LyX-Code
+
+    super.init(xx,yy)      # or - x=xx; y=yy
+\layout LyX-Code
+
+    z=zz
+\layout LyX-Code
+
+  end
+\layout LyX-Code
+
+end
+\layout LyX-Code
+
+p1 = Point2D.new           # p1.x=0, p2.y=0
+\layout LyX-Code
+
+p2 = Point2D.new(10,10)    # p2.x=10, p2.y=10
+\layout LyX-Code
+
+p3 = Point3D.new           # p3.x=0, p3.y=0, p3.z=0
+\layout LyX-Code
+
+p4 = Point3D.new(10,10,10) # p4.x=10, p4.y=10, p4.z=10
+\layout Subsubsection
+
+Inheritance
+\layout Standard
+\added_space_top medskip \align left 
+Topaz supports single inheritance with chained subclassing.
+ That is - a class can have only one superclass, however that class can
+ have a superclass, and so on.
+\layout Subsection
+
+Scope
+\layout Standard
+
+The scope rules in Topaz are pretty simple.
+ 
+\layout Itemize
+
+The built-in constants, functions, and classes are always accessible anywhere
+ in a program 
+\layout Itemize
+
+A user defined constant, variable, function, or class is not accessible
+ until after it is declared.
+\layout Itemize
+
+All function and class names are global as well as any constants or variables
+ declared outside of function or class definitions.
+ 
+\layout Itemize
+
+Any global constants, variables, functions, or classes will be accessible
+ within any subsequent function or class definitions.
+\layout Itemize
+
+If a constant or variable is declared for the first time within a function
+ or class method, it is considered local and will only be visible within
+ that function or method.
+\layout Itemize
+
+Class fields and methods are alway local to the class they are defined in
+ and can override global identifiers.
+\layout Subsection
+
+Memory Management
+\layout Standard
+\added_space_top medskip \align left 
+Topaz automatically allocates and frees memory to hold values as needed.
+ Array, Hashes, and Objects are all allocated from the PalmOS 64k heap area
+ when they are declared.
+ Caution is recommended when creating many objects or large arrays and hashes.
+ Any memory allocated inside of a method is automatically freed (except
+ for any return value) when returning from the method.
+ If you allocate a large array or hash, and would later like to free the
+ memory associated with it, simply assign a zero to the variable.
+\layout Section
+
+Standard Library Reference
+\layout Subsection
+
+Constants
+\layout Standard
+
+
+\family typewriter 
+True 
+\layout Standard
+
+The integer one.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+False
+\layout Standard
+
+The integer zero.
+\layout Subsection
+
+Functions
+\layout Standard
+
+Functions are described with the convention: return_type=function(typeName),
+ where type can be 
+\begin_inset Quotes eld
+\end_inset 
+
+i
+\begin_inset Quotes erd
+\end_inset 
+
+ for integer, 
+\begin_inset Quotes eld
+\end_inset 
+
+r
+\begin_inset Quotes erd
+\end_inset 
+
+ for real, 
+\begin_inset Quotes eld
+\end_inset 
+
+s
+\begin_inset Quotes erd
+\end_inset 
+
+ for string, or 
+\begin_inset Quotes eld
+\end_inset 
+
+e
+\begin_inset Quotes erd
+\end_inset 
+
+ for expression.
+\layout Subsubsection
+
+Types
+\layout Standard
+
+
+\family typewriter 
+s=getType(e)
+\layout Standard
+
+Returns: 
+\begin_inset Quotes eld
+\end_inset 
+
+int
+\begin_inset Quotes erd
+\end_inset 
+
+, 
+\begin_inset Quotes eld
+\end_inset 
+
+real
+\begin_inset Quotes erd
+\end_inset 
+
+, 
+\begin_inset Quotes eld
+\end_inset 
+
+string
+\begin_inset Quotes erd
+\end_inset 
+
+, 
+\begin_inset Quotes eld
+\end_inset 
+
+array
+\begin_inset Quotes erd
+\end_inset 
+
+, 
+\begin_inset Quotes eld
+\end_inset 
+
+hash
+\begin_inset Quotes erd
+\end_inset 
+
+, or 
+\begin_inset Quotes eld
+\end_inset 
+
+object
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+v=setType(e)
+\layout Standard
+
+Returns: e converted to type sType; where sType can be - 
+\begin_inset Quotes eld
+\end_inset 
+
+int
+\begin_inset Quotes erd
+\end_inset 
+
+, 
+\begin_inset Quotes eld
+\end_inset 
+
+real
+\begin_inset Quotes erd
+\end_inset 
+
+, or 
+\begin_inset Quotes eld
+\end_inset 
+
+string
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=isInt(e)
+\layout Standard
+
+Returns: True if var is an int, False otherwise.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=toInt(e)
+\layout Standard
+
+Returns: e converted to an integer.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=isReal(e)
+\layout Standard
+
+Returns: True if var is a real, False otherwise.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+r=toReal(e)
+\layout Standard
+
+Returns: e converted to a real.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=isStr(e)
+\layout Standard
+
+Returns: True if var is a string, False otherwise.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+s=toString(e)
+\layout Standard
+
+Returns: e converted to a string.
+\layout Subsubsection
+
+Math
+\layout Standard
+
+
+\family typewriter 
+r=sin(rDeg) 
+\layout Standard
+
+The sine of 
+\emph on 
+x
+\emph default 
+ in degrees.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+r=cos(rDeg)
+\layout Standard
+
+The cosine of 
+\emph on 
+x
+\emph default 
+ in degrees.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+r=tan(rDeg)
+\layout Standard
+
+The tangent of 
+\emph on 
+x
+\emph default 
+ in degrees.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+r=sqrt(rDeg) 
+\layout Standard
+
+The square root of 
+\emph on 
+x.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+r=abs(rDeg)
+\layout Standard
+
+The absolute value of 
+\emph on 
+x.
+\layout Subsubsection
+
+Graphics and Events
+\layout Standard
+
+
+\family typewriter 
+i=event(iTimeout)
+\layout Standard
+
+Waits iTimeout ticks for an event.
+ Events returned are:
+\layout Standard
+
+0 - nilEvent
+\layout Standard
+
+1 - penDown
+\layout Standard
+
+2 - penMove
+\layout Standard
+
+3 - penUp
+\layout Standard
+
+4 - keyDown
+\layout Standard
+
+3000 or greater - Control ID after control select event.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+yield
+\layout Standard
+
+Gives the OS a chance to process events.
+ Use inside of loops to prevent lockups.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=penx
+\layout Standard
+
+Returns: the last x coordinate of the stylus.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=peny
+\layout Standard
+
+Returns: the last y coordinate of the stylus.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=key
+\layout Standard
+
+Returns: the code of the last Graffiti character entered.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+clear
+\layout Standard
+
+Clears the entire screen.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+drawpoint(iX,iY)
+\layout Standard
+
+Draws a pixel at X,Y.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+drawline(iX1,iY1,iX2,iY2)
+\layout Standard
+
+Draws a line from X1,Y1 to X2,Y2.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+drawrect(iTopLeftX,iTopLeftY,iExtentX,iExtentY)
+\layout Standard
+
+Draws a rectangle from TopLeftX,TopLeftY with the sides length ExtentX and
+ ExtentY.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+title(sTitle)
+\layout Standard
+
+Draws a PalmOS style title bar at the top of the screen.
+\layout Subsubsection
+
+Miscellaneous
+\layout Standard
+
+
+\family typewriter 
+print(v{,v})
+\layout Standard
+\align left 
+
+\family typewriter 
+println(v{,v})
+\layout Standard
+
+Prints a comma separated list of values to the console using default formatting.
+ Println appends a newline character, print does not.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+printf(sFormat,v{,v})
+\layout Standard
+\align left 
+
+\family typewriter 
+printxy(iX,iy,sFormat,v,{,v})
+\layout Standard
+
+Works just like the standard C printf.
+ Printf formats and prints to the next line on the console, printxy prints
+ starting at pixel location X,Y.
+ Supports all of the standard width and precision modifiers and the following
+ format codes:
+\layout Standard
+
+
+\family typewriter 
+%d - decimal 
+\layout Standard
+
+
+\family typewriter 
+%s - string
+\layout Standard
+
+
+\family typewriter 
+%c - character
+\layout Standard
+
+
+\family typewriter 
+%o - octal
+\layout Standard
+
+
+\family typewriter 
+%x - lower case hex
+\layout Standard
+
+
+\family typewriter 
+%X - upper case hex
+\layout Standard
+
+
+\family typewriter 
+%f - real
+\layout Standard
+
+
+\family typewriter 
+%e - lower case exponential notation
+\layout Standard
+
+
+\family typewriter 
+%E - upper case exponential notation
+\layout Standard
+
+
+\family typewriter 
+%i - integer
+\layout Standard
+
+
+\family typewriter 
+%b - binary
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=len(e)
+\layout Standard
+
+Returns the length of e.
+ If e is an array or hash len will return the number of elements.
+ For a string, it will return the length of the string.
+ For int's and real's, it returns one.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+beep
+\layout Standard
+
+Triggers the Palm's built-in piezo element.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+delay(iTicks)
+\layout Standard
+
+Waits for a specified amount of time.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+i=random(i)
+\layout Standard
+
+Returns: a random number between 0 and i.
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+dup(v)
+\layout Standard
+
+Creates a copy of the argument.
+\layout Subsection
+
+Classes
+\layout Subsubsection
+
+Misc
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+Object
+\layout Subsubsection
+
+User Interface
+\layout Standard
+
+
+\family typewriter 
+Fld
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+Btn
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+PBtn
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+RBtn
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+CBox
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+Lst
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+Trg
+\layout Standard
+\added_space_top medskip \align left 
+
+\family typewriter 
+Sel
+\the_end

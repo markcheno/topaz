@@ -1,0 +1,86 @@
+#    0: adjs		1
+#    5: pushreal	45.0000
+#   10: setglobal	0
+#   15: pushint		0
+#   20: pushstring	'sin(%5.1f) = %5.4f
+'
+#   45: getglobal	0
+#   50: pushint		0
+#   55: getglobal	0
+#   60: pushint		1
+#   65: call		sin
+#   70: pushint		3
+#   75: call		printf
+#   80: pop
+#   81: pushreal	120.0000
+#   86: setglobal	0
+#   91: pushint		0
+#   96: pushstring	'cos(%5.1f) = %5.4f
+'
+#  121: getglobal	0
+#  126: pushint		0
+#  131: getglobal	0
+#  136: pushint		1
+#  141: call		cos
+#  146: pushint		3
+#  151: call		printf
+#  156: pop
+#  157: pushreal	10.0000
+#  162: setglobal	0
+#  167: pushint		0
+#  172: pushstring	'sqrt(%5.1f) = %5.4f
+'
+#  198: getglobal	0
+#  203: pushint		0
+#  208: getglobal	0
+#  213: pushint		1
+#  218: call		sqrt
+#  223: pushint		3
+#  228: call		printf
+#  233: pop
+#  234: pushreal	10.0000
+#  239: setglobal	0
+#  244: pushint		0
+#  249: pushstring	'10.0 = %5.5f
+'
+#  268: getglobal	0
+#  273: pushint		2
+#  278: call		printf
+#  283: pop
+#  284: pushint		1
+#  289: not
+#  290: setglobal	0
+#  295: pushint		0
+#  300: pushstring	'x = (!1) = '
+#  317: getglobal	0
+#  322: pushint		2
+#  327: call		println
+#  332: pop
+#  333: pushint		0
+#  338: not
+#  339: setglobal	0
+#  344: pushint		0
+#  349: pushstring	'x = (!0) = '
+#  366: getglobal	0
+#  371: pushint		2
+#  376: call		println
+#  381: pop
+#  382: getglobal	0
+#  387: not
+#  388: setglobal	0
+#  393: pushint		0
+#  398: pushstring	'x = (!x) = '
+#  415: getglobal	0
+#  420: pushint		2
+#  425: call		println
+#  430: pop
+#  431: getglobal	0
+#  436: not
+#  437: setglobal	0
+#  442: pushint		0
+#  447: pushstring	'x = (not x) = '
+#  467: getglobal	0
+#  472: pushint		2
+#  477: call		println
+#  482: pop
+#  483: halt

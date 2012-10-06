@@ -1,0 +1,37 @@
+#    0: adjs		2
+#    5: pushstring	'Mark Chenoweth'
+#   25: setglobal	0
+#   30: pushint		0
+#   35: setglobal	1
+#   40: getglobal	1
+#   45: pushint		0
+#   50: getglobal	0
+#   55: pushint		1
+#   60: call		len
+#   65: leq
+#   66: jnz		97
+#   71: jmp		152
+#   76: getglobal	1
+#   81: pushint		1
+#   86: add
+#   87: setglobal	1
+#   92: jmp		40
+#   97: pushint		0
+#  102: pushstring	'name[%d]=%c
+'
+#  120: getglobal	1
+#  125: getglobal	0
+#  130: getglobal	1
+#  135: getarray
+#  136: pushint		3
+#  141: call		printf
+#  146: pop
+#  147: jmp		76
+#  152: pushint		0
+#  157: getglobal	0
+#  162: pushint		20
+#  167: getarray
+#  168: pushint		1
+#  173: call		println
+#  178: pop
+#  179: halt

@@ -1,0 +1,51 @@
+#    0: adjs		1
+#    5: jmp		114
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		2
+#   25: lss
+#   26: jz		51
+#   31: getlocal	-2
+#   36: setlocal	-3
+#   41: rts		2
+#   46: jmp		114
+#   51: pushint		0
+#   56: getlocal	-2
+#   61: pushint		2
+#   66: sub
+#   67: pushint		1
+#   72: jsr		10
+#   77: pushint		0
+#   82: getlocal	-2
+#   87: pushint		1
+#   92: sub
+#   93: pushint		1
+#   98: jsr		10
+#  103: add
+#  104: setlocal	-3
+#  109: rts		2
+#  114: pushint		1
+#  119: setglobal	0
+#  124: getglobal	0
+#  129: pushint		20
+#  134: leq
+#  135: jnz		166
+#  140: jmp		229
+#  145: getglobal	0
+#  150: pushint		1
+#  155: add
+#  156: setglobal	0
+#  161: jmp		124
+#  166: pushint		0
+#  171: pushstring	'fib(%d)=%d
+'
+#  188: getglobal	0
+#  193: pushint		0
+#  198: getglobal	0
+#  203: pushint		1
+#  208: jsr		10
+#  213: pushint		3
+#  218: call		printf
+#  223: pop
+#  224: jmp		145
+#  229: halt

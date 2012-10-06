@@ -1,0 +1,68 @@
+# modified by MCC
+$LANGUAGE{'topaz'} = {
+	'filename'   => '\\.m1$',
+	'regex'      => '',
+	'patterns'   => [
+		{
+        	'name'       => 'comment',
+            'regex'      => '(?:#.*?(?:\r?\n\s*)+)+',
+			'style'      => 'comment',
+            'childregex' => []
+        },
+        {
+        	'name'       => 'string',
+            'regex'      => '""|".*?([^\\\\](\\\\\\\\)*)"|"\\\\\\\\"',
+			'style'      => 'string',
+            'childregex' => [
+                             {
+                              'name'       => 'esc character',
+                              'regex'      => '\\\\.',
+			                  'style'      => 'esc character',
+                              'childregex' => []
+                             }
+                            ]
+        },
+        {
+            'name'       => 'single quoted',
+            'regex'      => '\'\'|\'.*?([^\\\\](\\\\\\\\)*)\'|\'\\\\\\\\\'',
+	        'style'      => 'string',
+            'childregex' => []
+        },
+        {
+        	'name'       => 'numeric constant',
+            'regex'      => '\\b((0(x|X)[0-9a-fA-F]*)|[0-9.]+((e|E)(\\+|-)?)?[0-9]*)(L|l|UL|ul|u|U|F|f)?\\b',
+			'style'      => 'numeric',
+            'childregex' => []
+        },
+        {
+        	'name'       => 'storage and ops',
+            'regex'      => '\\b(?i)(and|class|array|div|func|mod|not|or|def|public|protected|private)\\b',
+			'style'      => 'reserved word',
+            'childregex' => []
+        },
+        {
+        	'name'       => 'keywords',
+            'regex'      => '\\b(?i)(if|then|elsif|else|end|unless|case|when|while|do|until|return|break|for|new|this|super|extends)\\b',
+			'style'      => 'reserved word',
+            'childregex' => []
+        },
+        {
+        	'name'       => 'sumbols',
+            'regex'      => '([\\*\\-\\+=:;<>\\(\\)\\[\\]!]|[^/]/[^/])',
+			'style'      => 'symbol',
+            'childregex' => []
+        },
+        {
+        	'name'       => 'identifiers',
+            'regex'      => '([a-zA-Z_][a-zA-Z_0-9.^]*[a-zA-Z_0-9]|[a-zA-Z_][a-zA-Z_0-9]*)',
+			'style'      => 'identifier',
+            'childregex' => [
+                             {
+                             	'regex'      => '(\\.|\\^)+',
+								'style'      => 'symbol',
+                                'childregex' => []
+                             }
+                            ]
+        }
+	],
+};

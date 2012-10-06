@@ -1,0 +1,93 @@
+#    0: adjs		1
+#    5: jmp		209
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		10
+#   25: setfield	0
+#   30: getlocal	-2
+#   35: pushint		10
+#   40: newarray
+#   41: dup
+#   42: pushint		0
+#   47: pushint		9
+#   52: pushint		0
+#   57: setslice
+#   58: setfield	1
+#   63: jmp		99
+#   68: link		0
+#   73: getlocal	-2
+#   78: getfield	1
+#   83: getlocal	-4
+#   88: getlocal	-3
+#   93: setarray
+#   94: rts		4
+#   99: jmp		135
+#  104: link		0
+#  109: getlocal	-2
+#  114: getfield	1
+#  119: getlocal	-3
+#  124: getarray
+#  125: setlocal	-4
+#  130: rts		3
+#  135: jmp		203
+#  140: link		0
+#  145: pushint		0
+#  150: pushstring	'a['
+#  158: getlocal	-3
+#  163: pushstring	']='
+#  171: getlocal	-2
+#  176: getfield	1
+#  181: getlocal	-3
+#  186: getarray
+#  187: pushint		4
+#  192: call		println
+#  197: pop
+#  198: rts		3
+#  203: nop
+#  204: rts		2
+#  209: newclass	2
+#  214: setglobal	0
+#  219: pushint		0
+#  224: getglobal	0
+#  229: pushint		1
+#  234: call		new
+#  239: pop
+#  240: pushint		0
+#  245: getglobal	0
+#  250: pushint		1
+#  255: jsr		10
+#  260: pop
+#  261: pushint		0
+#  266: pushstring	'length='
+#  279: getglobal	0
+#  284: getfield	0
+#  289: pushint		2
+#  294: call		println
+#  299: pop
+#  300: pushint		0
+#  305: pushint		5
+#  310: pushstring	'Mark'
+#  320: getglobal	0
+#  325: pushint		3
+#  330: jsr		68
+#  335: pop
+#  336: pushint		0
+#  341: pushint		6
+#  346: pushstring	'Cheno'
+#  357: getglobal	0
+#  362: pushint		3
+#  367: jsr		68
+#  372: pop
+#  373: pushint		0
+#  378: pushint		5
+#  383: getglobal	0
+#  388: pushint		2
+#  393: jsr		140
+#  398: pop
+#  399: pushint		0
+#  404: pushint		6
+#  409: getglobal	0
+#  414: pushint		2
+#  419: jsr		140
+#  424: pop
+#  425: halt

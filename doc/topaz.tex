@@ -1,0 +1,1214 @@
+%% LyX 1.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{babel}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+ \newenvironment{lyxlist}[1]
+   {\begin{list}{}
+     {\settowidth{\labelwidth}{#1}
+      \setlength{\leftmargin}{\labelwidth}
+      \addtolength{\leftmargin}{\labelsep}
+      \renewcommand{\makelabel}[1]{##1\hfil}}}
+   {\end{list}}
+ \newenvironment{lyxcode}
+   {\begin{list}{}{
+     \setlength{\rightmargin}{\leftmargin}
+     \raggedright
+     \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{0pt}
+     \normalfont\ttfamily}%
+    \item[]}
+   {\end{list}}
+
+\makeatother
+\begin{document}
+
+\title{The Topaz Programming Language}
+
+
+\author{Mark Chenoweth}
+
+\maketitle
+\tableofcontents{}
+
+
+\section{Introduction}
+
+
+\subsection{Language Features}
+
+Topaz is a powerful, light-weight, efficient programming language
+specifically designed for the PalmOS Computing Platform. It is dynamically
+typed, interpreted from byte-code, has automatic memory management,
+object oriented features, access to native PalmOS gui widgets and
+more.
+
+\medskip{}
+{\raggedright Topaz also Features:\par}
+
+\begin{itemize}
+\item A simple, short, and flexible syntax 
+\item A simple Class/Object model for object oriented programming 
+\item Built in floating point math and basic functions (sin,cos,tan,etc...) 
+\item Built in graphics functions (drawpoint,drawline,drawrect,etc...) 
+\item Built in native user interface classes (Button,Field,CheckBox,etc...) 
+\item Automatic type conversion 
+\item Easy string handling 
+\item Integrated editor/compiler/interpreter
+\item A single, small (<70k) .prc file with no extra libraries needed 
+\item Good documentation
+\end{itemize}
+{\noindent \raggedright Topaz is NOT:\par}
+
+\begin{itemize}
+\item Meant to create complex multi-form applications 
+\item Meant to replace more mature programming languages
+\end{itemize}
+
+\subsection{Quick Start}
+
+To create and run the canonical {}``hello, world'' program:
+
+\begin{enumerate}
+\item Install topaz.prc into your Palm device running PalmOS V3.0 or greater
+and launch Topaz.
+\item Press the {}``New'' button on the Main Form to create a new program
+and display the Editor Form.
+\item Enter this program: 
+
+\begin{lyxcode}
+\#~Hello~world~example
+
+println('hello,~world')
+\end{lyxcode}
+\item To execute the program, press the {}``Run'' button. The Output Form
+will appear, and {}``hello, world'' should be printed on it. If
+there are any errors, an error dialog box will notify you.
+\item After the program completes executing, the Output Form will continue
+to be displayed. You may return to either the Editor or the Main Form
+by selecting the Menu icon, and then Goto|Editor or Goto|Main.
+\item Basic program structure is as follows: 
+
+\begin{itemize}
+\item The main form will always display the first line of a program as the
+program title, so programs generally start with a one line descriptive
+comment followed by one or more statements.
+\item Comments begin with a \texttt{\#} and continue until the end of the
+line.
+\item Follow the initial comment with one or more statements.
+\end{itemize}
+\end{enumerate}
+For a more complicated example, try this:
+
+\begin{lyxcode}
+\#~Scribble~Demo~
+
+btn~=~Button.new~
+
+btn.setXY(10,125)~
+
+btn.setSize(40,20)~
+
+btn.setLabel('Clear')~
+
+btn.show
+
+while~true~
+
+~~e=event(100);~y=peny~
+
+~~if~e==btn.id~then~
+
+~~~~eraserect(0,0,160,120)~
+
+~~elsif~y~<~115~
+
+~~~~drawrect(penx,y,3,3)~
+
+~~end~
+
+end
+\end{lyxcode}
+
+\section{Language Syntax}
+
+
+\subsection{Program Structure}
+
+A Topaz program consists of a series of statements, interspersed with
+any function and/or class definitions. Statement, function, and class
+definitions can be declared in any order, anywhere in a program, but
+may not be referenced until after they are declared.
+
+\medskip{}
+{\raggedright By convention, the Main form of the IDE displays the
+first line of a program as a title of the program. Therefore it is
+a good idea (but not required) to start a program with a one line
+descriptive comment. Follow that with any global variable declarations,
+then any function or class definitions, and finally program statements.\par}
+
+\medskip{}
+{\raggedright Semi-colons can be used to separate statements for clarity,
+but are not required.\par}
+
+
+\subsection{Lexical Conventions}
+
+Identifiers in Topaz can be any string of letters, digits, and underscores,
+up to sixteen characters long and must begin with a letter. 
+
+\medskip{}
+{\raggedright The following identifiers are keywords, and may not
+be used otherwise:\par}
+
+\medskip{}
+{\centering \begin{tabular}{ccccc}
+\texttt{and}&
+\texttt{break}&
+\texttt{case}&
+\texttt{class}&
+\texttt{def}\\
+\texttt{do}&
+\texttt{else}&
+\texttt{elsif}&
+\texttt{end}&
+\texttt{for}\\
+\texttt{if}&
+\texttt{mod}&
+\texttt{not}&
+\texttt{or}&
+\texttt{private}\\
+\texttt{protected}&
+\texttt{public}&
+\texttt{return}&
+\texttt{self}&
+\texttt{super}\\
+\texttt{then}&
+\texttt{unless}&
+\texttt{until}&
+\texttt{when}&
+\texttt{while}\\
+\end{tabular}\par}
+
+\medskip{}
+{\raggedright The following strings denote other tokens recognized
+by the parser:\par}
+
+\begin{lyxcode}
+{\centering (~)~{[}~{]}~\{~\}~.~;~,~\&~+~-~{*}~/~||~\&\&~==~=~>~>=~<~<=~<>~!\par}
+\end{lyxcode}
+\medskip{}
+{\raggedright And the following keywords are reserved for future use:\par}
+
+\begin{lyxcode}
+{\centering in~include~foreach~module~next~require~static\par}
+\end{lyxcode}
+\medskip{}
+{\raggedright Topaz is a case sensitive language. {}``Case'' and
+{}``case'' are two separate identifiers.\par}
+
+\medskip{}
+{\raggedright \emph{String Constants} can be up to 64 characters long,
+delimited by matching single or double quotes, and can contain the
+C-like escape sequences: \par}
+
+\vspace{0.3cm}
+{\raggedright \begin{tabular}{rc}
+new line:&
+\texttt{\textbackslash{}n}\\
+carriage return:&
+\texttt{\textbackslash{}r}\\
+double quote:&
+\texttt{\textbackslash{}''}\\
+single quote:&
+\texttt{\textbackslash{}'}\\
+tab:&
+\texttt{\textbackslash{}t}\\
+backslash:&
+\texttt{\textbackslash{}\textbackslash{}}\\
+\end{tabular}\par}
+\vspace{0.3cm}
+
+{\raggedright Examples of valid string constants are:\par}
+
+\begin{itemize}
+\item \texttt{\char`\"{}hello, world\char`\"{} }
+\item \texttt{'Programming should be fun' }
+\item \texttt{\char`\"{}This \textbackslash{}'word\textbackslash{}' is quoted\char`\"{}}
+\end{itemize}
+\emph{Numerical Constants -} Standard octal, hexadecimal, and scientific
+notation is supported for numerical constants. Examples of valid numerical
+constants are:
+
+\begin{itemize}
+\item \texttt{42}
+\item 0377
+\item \texttt{0xffff}
+\item \texttt{3.14159 }
+\item \texttt{707e-3 }
+\item \texttt{1.45E5}
+\end{itemize}
+\emph{Whitespace} is ignored outside of string constants and consists
+of: blanks, tabs, newlines, and carriage returns.
+
+\medskip{}
+{\raggedright \emph{Comments} are introduced with a \texttt{\#} and
+continue until the next new line character.\par}
+
+
+\subsection{Data Types}
+
+
+\subsubsection{Primitive Types}
+
+There are three primitive types built into Topaz: 
+
+\vspace{0.3cm}
+{\centering \begin{tabular}{ll}
+Integer&
+a 32 bit signed integer\\
+String&
+a single or double quote delimited string not more than 64 characters
+long\\
+Real&
+a 32 bit IEEE single precision float\\
+\end{tabular}\par}
+\vspace{0.3cm}
+
+{\raggedright In addition to the basic data types, Topaz also supports
+Arrays, Hashes, and Objects.\par}
+
+
+\subsubsection{Arrays}
+
+{\raggedright Arrays are created by assigning an \emph{array initializer}
+to a variable. An array initializer is a comma-separated string of
+values between square brackets. You can use the special \emph{array
+repeat operator} to easily assign multiple values. For example:\par}
+
+\begin{lyxcode}
+arr~=~{[}~1,~3.14159,~''some~text'',~7x0~{]}
+\end{lyxcode}
+will create an array of ten elements -
+
+\begin{lyxcode}
+arr{[}0{]}~=~1
+
+arr{[}1{]}~=~3.14159
+
+arr{[}2{]}~=~''some~text''
+
+arr{[}3{]}~=~0
+
+
+
+arr{[}9{]}~=~0
+\end{lyxcode}
+The format of the array repeat operator is: \emph{count} \texttt{x}
+\emph{value.} The count must be an integer constant, the {}``\texttt{x}''
+must be lowercase, and the value can be any valid expression. It is
+only valid inside array initializers. 
+
+\medskip{}
+{\raggedright You can also create n dimension arrays by assigning
+arrays to array elements. For example:\par}
+
+\begin{lyxcode}
+arr~=~{[}~0,~1,~{[}10,20{]}~{]}
+\end{lyxcode}
+will create an array with three elements, the third being another
+array, and containing the following values:
+
+\begin{lyxcode}
+arr{[}0{]}~~~~=~0
+
+arr{[}1{]}~~~~=~1
+
+arr{[}2{]}{[}0{]}~=~10
+
+arr{[}2{]}{[}1{]}~=~20
+\end{lyxcode}
+\medskip{}
+{\raggedright Array indexes always start at zero and continue to length-1
+. It is a runtime error to try to access arrays with an invalid index.
+Memory to hold arrays is allocated from the heap, and can be freed
+by simply assigning a zero to the array variable.\par}
+
+\medskip{}
+{\raggedright Individual characters of a string variable may be accessed
+like an array. For example, after executing the two statements:\par}
+
+\begin{lyxcode}
+month~=~''November''
+
+first~=~month{[}0{]}
+\end{lyxcode}
+the variable \texttt{first} will contain an integer with the value
+of 78 (the ascii value of {}``N'').
+
+
+\subsubsection{Hashes}
+
+{\raggedright Hashes can be created with \emph{hash initializers},
+or by simply assigning key/value pairs. A hash initializer is a list
+of key/value pairs between braces. Key are separated from values by
+the sequence {}``=>''. The key value pairs are separated with commas.
+For example, the next two statements:\par}
+
+\begin{lyxcode}
+months~=~\{~''Jan''~=>~1,~''Feb''~=>~2~\}
+
+months\{''Mar''\}~=~3
+\end{lyxcode}
+will first create a hash with two elements, and then add another.
+The final result will be -
+
+\begin{lyxcode}
+months\{''Jan''\}~=~1
+
+months\{''Feb''\}~=~2
+
+months\{''Mar''\}~=~3
+\end{lyxcode}
+Memory for hashes is allocated from the heap, and can be freed by
+simply assigning a zero to the hash variable.
+
+
+\subsubsection{Objects}
+
+Objects are 32 bit references to an object instance that are created
+by instantiating a class using its \texttt{new} method. 
+
+
+\subsection{Variables and Constants}
+
+Topaz variables are type-less and are declared by assigning a value
+to them with an assignment statement. The \emph{value} of a variable
+has a type associated with it.
+
+\begin{itemize}
+\item Variables start with a lowercase letter, and are followed by up to
+15 other letters, numbers, or underscore characters. 
+\item Constants start with an uppercase letter, and are followed by up to
+15 other letters, numbers, or underscore characters. Once a constant
+is defined, it is a compile-time error to attempt to redefine it.
+\end{itemize}
+
+\subsection{Expressions and Operators}
+
+
+\subsubsection{Expressions}
+
+Expressions combine variables and constants (the operands) with operators
+to produce new values. 
+
+
+\subsubsection{Operators}
+
+\medskip{}
+{\raggedright Topaz supports a standard set of operators. The following
+table lists all the operators and the types they operate on:\par}
+
+\vspace{0.3cm}
+{\centering \begin{tabular}{rccccccl}
+ \underbar{}&
+&
+&
+&
+&
+&
+&
+\emph{\underbar{Valid operand types}}\\
+logical negation:&
+\texttt{not}&
+\texttt{!}&
+&
+&
+&
+&
+integer\\
+multiplicative:&
+\texttt{{*}}&
+\texttt{/}&
+&
+&
+&
+&
+integer or real\\
+modulus:&
+\texttt{mod}&
+\texttt{\%}&
+&
+&
+&
+&
+integer\\
+additive:&
+\texttt{+}&
+-&
+&
+&
+&
+&
+integer or real\\
+bitwise logical:&
+\texttt{and}&
+\texttt{\&\&}&
+\texttt{or}&
+\texttt{||}&
+&
+&
+integer\\
+relational:&
+\texttt{==}&
+\texttt{<>}&
+\texttt{<}&
+\texttt{<=}&
+\texttt{>}&
+\texttt{>=}&
+integer or real\\
+\end{tabular}\par}
+\vspace{0.3cm}
+
+\medskip{}
+{\raggedright Note that are are two operators with identical functions
+for the \emph{logcial negation, modulus}, \emph{bitwise and} and \emph{bitwise
+or} operators.The logical negation operators only operate on a single
+operand. All the rest operate on two operands. Parenthesis can be
+used to group expressions together. \par}
+
+
+\subsubsection{Operator Precedence}
+
+\medskip{}
+{\raggedright Operator precedence is similar to PASCAL where there
+are only four levels of operator precedence:\par}
+
+\medskip{}
+{\centering \begin{tabular}{ccccccc}
+Highest:&
+\texttt{not}&
+\texttt{!}&
+&
+&
+&
+\\
+&
+\texttt{{*}}&
+\texttt{/}&
+\texttt{and}&
+\texttt{\&\&}&
+\texttt{mod}&
+\texttt{\%}\\
+&
+\texttt{+}&
+\texttt{-}&
+\texttt{or}&
+\texttt{||}&
+&
+\\
+Lowest:&
+\texttt{==}&
+\texttt{<>}&
+\texttt{<}&
+\texttt{<=}&
+\texttt{>}&
+\texttt{>=}\\
+\end{tabular}\par}
+
+\medskip{}
+{\raggedright Operators at the same precedence level are evaluated
+from left to right. When in doubt, use parenthesis to group your expressions
+together.\par}
+
+
+\subsubsection{Automatic Type Conversion}
+
+Topaz provides automatic type conversion between values during runtime.
+When an arithmetic expression is being evaluated using the relational,
+addititive or multiplicative operators, the two operands will automatically
+be converted according to the following rules:
+
+\begin{enumerate}
+\item If an operand is a string, it will be converted to a real if there
+is a decimal point present. Otherwise, it will be converted to an
+integer.
+\item If both operand types are ints or reals, the resulant type is the
+same as the operands.
+\item An integer and a real make a real.
+\end{enumerate}
+For example:
+
+\begin{itemize}
+\item 1 + 3.1415 = 4.1415 
+\item 1 + \char`\"{}2.0\char`\"{} = 3.0 
+\item \char`\"{}1.5\char`\"{} + 2.0 = 3.5
+\item ''10'' + ''20'' = 30
+\end{itemize}
+
+\subsection{Statements}
+
+\medskip{}
+{\raggedright When describing the syntax of Topaz statements, optional
+keywords are enclosed by square brackets.\par}
+
+
+\subsubsection{The assignment statement}
+
+\begin{lyxcode}
+\medskip{}
+\emph{Lhs}~=~\emph{Expr}
+\end{lyxcode}
+\medskip{}
+{\raggedright The assignment statement is used to declare variables
+as well as assign new values to existing variables. The left hand
+side can be a new or existing variable. The right hand side can be
+any normal expression, array initializer, hash initializer, or function
+or method call.\par}
+
+
+\subsubsection{The \texttt{if} statement}
+
+\medskip{}
+{\raggedright The basic format of the \texttt{if} statement is as
+follows:\par}
+
+\begin{lyxcode}
+\medskip{}
+if~\emph{condition}~{[}then{]}
+
+~\emph{~statementlist}
+
+elsif~\emph{condition}~{[}then{]}
+
+~\emph{~statementlist}
+
+else
+
+~\emph{~statementlist}
+
+\medskip{}
+end
+\end{lyxcode}
+\medskip{}
+{\raggedright The condition is an expression which controls what the
+rest of the statement will do. If condition is true, the the next
+block of code will be executed. The \texttt{elsif} \textsf{and} \texttt{else}
+blocks are optional. Note however that unlike certain other languages,
+the \texttt{end} keyword is required.\par}
+
+
+\subsubsection{The \texttt{unless} statement}
+
+\begin{lyxcode}
+\medskip{}
+unless~\emph{condition}~{[}then{]}~
+
+~~\emph{statementlist~}
+
+else
+
+~~\emph{statementlist}
+
+end
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{unless} statement is similar the the \texttt{if}
+statement, except that the next block of code will be executed when
+when the condition is false. The \texttt{else} block is optional.\par}
+
+
+\subsubsection{The \texttt{case} statement}
+
+\begin{lyxcode}
+\medskip{}
+case~\emph{expression}
+
+when~\emph{condition}~{[}then{]}
+
+~~\emph{statementlist}
+
+else
+
+~~\emph{statementlist}
+
+end
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{case} statement is yet another form of the
+\texttt{if} statement. The expression after the case keyword is evaluated.
+If the result matches the value of the expression in one of the \texttt{when}
+or \texttt{else} statements, then that block of code will be executed.
+There can be zero or more \texttt{when} blocks and zero or one \texttt{else}
+blocks.\par}
+
+
+\subsubsection{The \texttt{for} statement}
+
+\begin{lyxcode}
+\medskip{}
+for(~\emph{init};~\emph{condition};~\emph{incr}~)
+
+~~\emph{statementlist}~
+
+end
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{for} statement is very similar its C language
+counterpart. The \emph{init} part is an assignment statement which
+is executed at the beginning of the loop. Then \emph{condition} is
+evaluated, and while it is true, the \emph{statementlist} will be
+executed. At the end of the loop, \emph{incr} is evaluated, and the
+loop starts over. All three parts (init,condition,incr) are optional.\par}
+
+
+\subsubsection{The \texttt{while} statement}
+
+\begin{lyxcode}
+\medskip{}
+while~\emph{condition}~{[}do{]}~
+
+~~\emph{statementlist}
+
+end
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{while} statement is the simplest of loops.
+The condition part is evaluated at the beginning of each loop, and
+while true, the statement list will be executed. \par}
+
+
+\subsubsection{The \texttt{until} statement}
+
+\begin{lyxcode}
+\medskip{}
+until~\emph{condition}~{[}do{]}
+
+~~\emph{statementlist}
+
+end
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{until} statement is the opposite of the
+while. The condition part is evaluated at the beginning of each loop,
+and while false, the statement list will be executed. \par}
+
+
+\subsubsection{The \texttt{break} statement}
+
+\begin{lyxcode}
+\medskip{}
+break
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{break} statement is used to break out of
+\texttt{for}, \texttt{while}, and \texttt{until} loops. It transfers
+control to the next statement after the loop.\par}
+
+
+\subsubsection{The \texttt{return} statement}
+
+\begin{lyxcode}
+\medskip{}
+return~\emph{expression}
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{return} statement is used to return from
+functions and class methods. \emph{expression} is the optional return
+value.\par}
+
+
+\subsubsection{The \texttt{public} statement}
+
+\begin{lyxcode}
+\medskip{}
+public
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{publi}c statement is only valid within class
+definitions and signals that any following fields or methods will
+be publicly available.\par}
+
+
+\subsubsection{The \texttt{protected} statement}
+
+\begin{lyxcode}
+\medskip{}
+protected
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{protected} statement is only valid within
+class definitions and signals that any following fields or methods
+will be protected. That is, they are only visible within the class
+they are defined and to sublcasses.\par}
+
+
+\subsubsection{The \texttt{private} statement}
+
+\begin{lyxcode}
+\medskip{}
+private
+\end{lyxcode}
+\medskip{}
+{\raggedright The \texttt{private} statement is only valid within
+class definitions and signals that any following fields or methods
+will be private. That is, they are only visible within the class they
+are defined in.\par}
+
+
+\subsection{Functions}
+
+\medskip{}
+{\raggedright Functions in Topaz are similar to functions in most
+other procedural programming languages. Their basic syntax is:\par}
+
+\begin{lyxcode}
+def~\emph{functionname}(\emph{param}1,param2,)
+
+~~\emph{statementlist}
+
+end
+\end{lyxcode}
+The params enclosed by parenthesis are optional. The \texttt{return}
+statement can optionally be used to return a value.
+
+\medskip{}
+{\raggedright Functions can be defined anywhere in a program, but
+can only be referenced after they are defined. Any new variables declared
+within a function are considered local variables and are only visible
+within that function. Any variables, functions, or classes declared
+in the global scope before the current function definition will also
+be visible.\par}
+
+
+\subsection{Classes}
+
+\medskip{}
+{\raggedright The basic sytax of a class definition is:\par}
+
+\begin{lyxcode}
+class~\emph{Name}~<~\emph{Superclass}
+
+~~\emph{body}
+
+end
+\end{lyxcode}
+The class name must begin with an uppcase letter. The sequence \texttt{<}
+\texttt{\emph{Superclass}} is optional. A class body consists of a
+series of one or more field and method definitions. By default, everything
+in a class has public scope. The \texttt{public}, \textsf{}\texttt{protected},
+and \texttt{private} statements can be used the change the visibility
+of following definitions.
+
+
+\subsubsection{Instantiation}
+
+Every class implicitly has a \texttt{new} method which will automatically
+create a new object and initialize its fields. For example:
+
+\begin{lyxcode}
+point~=~Point3D.new
+\end{lyxcode}
+will create a new object of class Point3D and assign a reference of
+it to the variable point.
+
+
+\subsubsection{Fields}
+
+Class fields must be initialized with static values - either int,
+real, string, hash or array. You cannot intialize a field with an
+object.
+
+
+\subsubsection{Methods}
+
+Class methods are simply functions declared within a class definition.
+The syntax is exactly the same. A method with the name \texttt{init}
+is considered a class constructor. See the section on class constructors.
+
+
+\subsubsection{Scope}
+
+{\raggedright Class fields an methods can be at one of three scope
+levels: \par}
+
+\begin{lyxlist}{00.00.0000}
+\item [Public]- visible anywhere within it's class after its declaration,
+and in any instantiated objects.
+\item [Protected]- visible within the class it is defined in, and any subclasses
+\item [Private]- visible only within the class it is defined in
+\end{lyxlist}
+By default, everything in a class is public. You can change the scope
+using the public, protected, or private keywords.
+
+\medskip{}
+{\raggedright Class fields and method declarations only belong to
+the class they are defined in, therefore they can and will override
+any previous identifiers.\par}
+
+
+\subsubsection{Constructors}
+
+{\raggedright Class fields are automatically initialized when a classes
+\texttt{new} method is called. In addition, you may create a user
+defined class initializer method called \texttt{init}. If the \texttt{init}
+method declaration does not have any formal parameters, it will be
+automatically called right after the fields are initialized. If it
+does have parameters, you can pass them via the \texttt{new} call.
+If it does have parameters and you do not pass them via the new call,
+the \texttt{init} method will not automatically be called, however
+you may explicitly call it yourself (with the proper number of parameters).
+When a class is instantiated all of its superclasses fields will be
+initialized, however you must explicitly call any \texttt{init} methods.
+Generally you would call a superclasses \texttt{init} method from
+the base classes \texttt{init} method. For example:\par}
+
+\begin{lyxcode}
+class~Point2D
+
+~~x=0;~y=0
+
+~~def~init(x,y)
+
+~~~self.x=x;~self.y=y
+
+~~end
+
+end
+
+class~Point3D~<~Point2D
+
+~~z=0
+
+~~def~init(xx,yy,zz)
+
+~~~~super.init(xx,yy)~~~~~~\#~or~-~x=xx;~y=yy
+
+~~~~z=zz
+
+~~end
+
+end
+
+p1~=~Point2D.new~~~~~~~~~~~\#~p1.x=0,~p2.y=0
+
+p2~=~Point2D.new(10,10)~~~~\#~p2.x=10,~p2.y=10
+
+p3~=~Point3D.new~~~~~~~~~~~\#~p3.x=0,~p3.y=0,~p3.z=0
+
+p4~=~Point3D.new(10,10,10)~\#~p4.x=10,~p4.y=10,~p4.z=10
+\end{lyxcode}
+
+\subsubsection{Inheritance}
+
+\medskip{}
+{\raggedright Topaz supports single inheritance with chained subclassing.
+That is - a class can have only one superclass, however that class
+can have a superclass, and so on.\par}
+
+
+\subsection{Scope}
+
+The scope rules in Topaz are pretty simple. 
+
+\begin{itemize}
+\item The built-in constants, functions, and classes are always accessible
+anywhere in a program 
+\item A user defined constant, variable, function, or class is not accessible
+until after it is declared.
+\item All function and class names are global as well as any constants or
+variables declared outside of function or class definitions. 
+\item Any global constants, variables, functions, or classes will be accessible
+within any subsequent function or class definitions.
+\item If a constant or variable is declared for the first time within a
+function or class method, it is considered local and will only be
+visible within that function or method.
+\item Class fields and methods are alway local to the class they are defined
+in and can override global identifiers.
+\end{itemize}
+
+\subsection{Memory Management}
+
+\medskip{}
+{\raggedright Topaz automatically allocates and frees memory to hold
+values as needed. Array, Hashes, and Objects are all allocated from
+the PalmOS 64k heap area when they are declared. Caution is recommended
+when creating many objects or large arrays and hashes. Any memory
+allocated inside of a method is automatically freed (except for any
+return value) when returning from the method. If you allocate a large
+array or hash, and would later like to free the memory associated
+with it, simply assign a zero to the variable.\par}
+
+
+\section{Standard Library Reference}
+
+
+\subsection{Constants}
+
+\texttt{True }
+
+The integer one.
+
+\medskip{}
+{\raggedright \texttt{False}\par}
+
+The integer zero.
+
+
+\subsection{Functions}
+
+Functions are described with the convention: return\_type=function(typeName),
+where type can be {}``i'' for integer, {}``r'' for real, {}``s''
+for string, or {}``e'' for expression.
+
+
+\subsubsection{Types}
+
+\texttt{s=getType(e)}
+
+Returns: {}``int'', {}``real'', {}``string'', {}``array'',
+{}``hash'', or {}``object''.
+
+\medskip{}
+{\raggedright \texttt{v=setType(e)}\par}
+
+Returns: e converted to type sType; where sType can be - {}``int'',
+{}``real'', or {}``string''.
+
+\medskip{}
+{\raggedright \texttt{i=isInt(e)}\par}
+
+Returns: True if var is an int, False otherwise.
+
+\medskip{}
+{\raggedright \texttt{i=toInt(e)}\par}
+
+Returns: e converted to an integer.
+
+\medskip{}
+{\raggedright \texttt{i=isReal(e)}\par}
+
+Returns: True if var is a real, False otherwise.
+
+\medskip{}
+{\raggedright \texttt{r=toReal(e)}\par}
+
+Returns: e converted to a real.
+
+\medskip{}
+{\raggedright \texttt{i=isStr(e)}\par}
+
+Returns: True if var is a string, False otherwise.
+
+\medskip{}
+{\raggedright \texttt{s=toString(e)}\par}
+
+Returns: e converted to a string.
+
+
+\subsubsection{Math}
+
+\texttt{r=sin(rDeg) }
+
+The sine of \emph{x} in degrees.
+
+\medskip{}
+{\raggedright \texttt{r=cos(rDeg)}\par}
+
+The cosine of \emph{x} in degrees.
+
+\medskip{}
+{\raggedright \texttt{r=tan(rDeg)}\par}
+
+The tangent of \emph{x} in degrees.
+
+\medskip{}
+{\raggedright \texttt{r=sqrt(rDeg) }\par}
+
+The square root of \emph{x.}
+
+\medskip{}
+{\raggedright \texttt{r=abs(rDeg)}\par}
+
+The absolute value of \emph{x.}
+
+
+\subsubsection{Graphics and Events}
+
+\texttt{i=event(iTimeout)}
+
+Waits iTimeout ticks for an event. Events returned are:
+
+0 - nilEvent
+
+1 - penDown
+
+2 - penMove
+
+3 - penUp
+
+4 - keyDown
+
+3000 or greater - Control ID after control select event.
+
+\medskip{}
+{\raggedright \texttt{yield}\par}
+
+Gives the OS a chance to process events. Use inside of loops to prevent
+lockups.
+
+\medskip{}
+{\raggedright \texttt{i=penx}\par}
+
+Returns: the last x coordinate of the stylus.
+
+\medskip{}
+{\raggedright \texttt{i=peny}\par}
+
+Returns: the last y coordinate of the stylus.
+
+\medskip{}
+{\raggedright \texttt{i=key}\par}
+
+Returns: the code of the last Graffiti character entered.
+
+\medskip{}
+{\raggedright \texttt{clear}\par}
+
+Clears the entire screen.
+
+\medskip{}
+{\raggedright \texttt{drawpoint(iX,iY)}\par}
+
+Draws a pixel at X,Y.
+
+\medskip{}
+{\raggedright \texttt{drawline(iX1,iY1,iX2,iY2)}\par}
+
+Draws a line from X1,Y1 to X2,Y2.
+
+\medskip{}
+{\raggedright \texttt{drawrect(iTopLeftX,iTopLeftY,iExtentX,iExtentY)}\par}
+
+Draws a rectangle from TopLeftX,TopLeftY with the sides length ExtentX
+and ExtentY.
+
+\medskip{}
+{\raggedright \texttt{title(sTitle)}\par}
+
+Draws a PalmOS style title bar at the top of the screen.
+
+
+\subsubsection{Miscellaneous}
+
+\texttt{print(v\{,v\})}
+
+{\raggedright \texttt{println(v\{,v\})}\par}
+
+Prints a comma separated list of values to the console using default
+formatting. Println appends a newline character, print does not.
+
+\medskip{}
+{\raggedright \texttt{printf(sFormat,v\{,v\})}\par}
+
+{\raggedright \texttt{printxy(iX,iy,sFormat,v,\{,v\})}\par}
+
+Works just like the standard C printf. Printf formats and prints to
+the next line on the console, printxy prints starting at pixel location
+X,Y. Supports all of the standard width and precision modifiers and
+the following format codes:
+
+\texttt{\%d - decimal }
+
+\texttt{\%s - string}
+
+\texttt{\%c - character}
+
+\texttt{\%o - octal}
+
+\texttt{\%x - lower case hex}
+
+\texttt{\%X - upper case hex}
+
+\texttt{\%f - real}
+
+\texttt{\%e - lower case exponential notation}
+
+\texttt{\%E - upper case exponential notation}
+
+\texttt{\%i - integer}
+
+\texttt{\%b - binary}
+
+\medskip{}
+{\raggedright \texttt{i=len(e)}\par}
+
+Returns the length of e. If e is an array or hash len will return
+the number of elements. For a string, it will return the length of
+the string. For int's and real's, it returns one.
+
+\medskip{}
+{\raggedright \texttt{beep}\par}
+
+Triggers the Palm's built-in piezo element.
+
+\medskip{}
+{\raggedright \texttt{delay(iTicks)}\par}
+
+Waits for a specified amount of time.
+
+\medskip{}
+{\raggedright \texttt{i=random(i)}\par}
+
+Returns: a random number between 0 and i.
+
+\medskip{}
+{\raggedright \texttt{dup(v)}\par}
+
+Creates a copy of the argument.
+
+
+\subsection{Classes}
+
+
+\subsubsection{Misc}
+
+\medskip{}
+{\raggedright \texttt{Object}\par}
+
+
+\subsubsection{User Interface}
+
+\texttt{Fld}
+
+\medskip{}
+{\raggedright \texttt{Btn}\par}
+
+\medskip{}
+{\raggedright \texttt{PBtn}\par}
+
+\medskip{}
+{\raggedright \texttt{RBtn}\par}
+
+\medskip{}
+{\raggedright \texttt{CBox}\par}
+
+\medskip{}
+{\raggedright \texttt{Lst}\par}
+
+\medskip{}
+{\raggedright \texttt{Trg}\par}
+
+\medskip{}
+\raggedright \texttt{Sel}
+\end{document}

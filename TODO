@@ -1,0 +1,10 @@
+	modify compiler to take -o option
+	fix reset.pl runtest.pl
+	make heap end more intelligent
+	add check to make sure heap and stack do not collide
+	add garbage collection (mark/sweep)
+	see if signal, etc.. still works for interp
+	Fix segv when out of heap/stack memory. Graceful exit...	
+    Convert symbol.c to use vm_malloc
+	fix silent ignore of not found functions...
+

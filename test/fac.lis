@@ -1,0 +1,43 @@
+#    0: adjs		1
+#    5: jmp		129
+#   10: link		1
+#   15: getlocal	-2
+#   20: pushint		0
+#   25: eql
+#   26: jz		51
+#   31: pushint		1
+#   36: setlocal	-3
+#   41: rts		3
+#   46: jmp		51
+#   51: pushint		1
+#   56: setlocal	0
+#   61: getlocal	-2
+#   66: pushint		0
+#   71: gtr
+#   72: jz		114
+#   77: getlocal	0
+#   82: getlocal	-2
+#   87: mul
+#   88: setlocal	0
+#   93: getlocal	-2
+#   98: pushint		1
+#  103: sub
+#  104: setlocal	-2
+#  109: jmp		61
+#  114: getlocal	0
+#  119: setlocal	-3
+#  124: rts		3
+#  129: pushint		7
+#  134: setglobal	0
+#  139: pushint		0
+#  144: pushstring	'factorial of '
+#  163: getglobal	0
+#  168: pushstring	' = '
+#  177: pushint		0
+#  182: getglobal	0
+#  187: pushint		1
+#  192: jsr		10
+#  197: pushint		4
+#  202: call		println
+#  207: pop
+#  208: halt

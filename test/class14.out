@@ -1,0 +1,8 @@
+Grandfather: init
+Father: init
+Son: init
+Grandfather: xx
+Grandfather: xx
+x.f1=Grandfather
+x.f2=Father
+x.f3=Son

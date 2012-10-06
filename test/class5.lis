@@ -1,0 +1,99 @@
+#    0: adjs		4
+#    5: pushreal	3.1415
+#   10: setglobal	0
+#   15: jmp		60
+#   20: link		0
+#   25: pushint		0
+#   30: pushstring	'PI='
+#   39: getglobal	0
+#   44: pushint		2
+#   49: call		println
+#   54: pop
+#   55: rts		1
+#   60: pushint		10
+#   65: setglobal	1
+#   70: pushint		1
+#   75: setglobal	2
+#   80: getglobal	2
+#   85: getglobal	1
+#   90: lss
+#   91: jnz		122
+#   96: jmp		156
+#  101: getglobal	2
+#  106: pushint		1
+#  111: add
+#  112: setglobal	2
+#  117: jmp		80
+#  122: pushint		0
+#  127: pushstring	'x='
+#  135: getglobal	2
+#  140: pushint		2
+#  145: call		println
+#  150: pop
+#  151: jmp		101
+#  156: jmp		248
+#  161: link		0
+#  166: getlocal	-2
+#  171: pushint		1
+#  176: setfield	0
+#  181: getlocal	-2
+#  186: pushint		2
+#  191: setfield	1
+#  196: getlocal	-2
+#  201: pushint		3
+#  206: setfield	2
+#  211: jmp		242
+#  216: link		0
+#  221: pushint		0
+#  226: pushint		0
+#  231: jsr		20
+#  236: pop
+#  237: rts		2
+#  242: nop
+#  243: rts		2
+#  248: newclass	3
+#  253: setglobal	3
+#  258: pushint		0
+#  263: getglobal	3
+#  268: pushint		1
+#  273: call		new
+#  278: pop
+#  279: pushint		0
+#  284: getglobal	3
+#  289: pushint		1
+#  294: jsr		161
+#  299: pop
+#  300: getglobal	3
+#  305: getglobal	0
+#  310: setfield	0
+#  315: pushint		0
+#  320: pushstring	'o.f1='
+#  331: getglobal	3
+#  336: getfield	0
+#  341: pushint		2
+#  346: call		println
+#  351: pop
+#  352: pushint		0
+#  357: pushstring	'o.f2='
+#  368: getglobal	3
+#  373: getfield	1
+#  378: pushint		2
+#  383: call		println
+#  388: pop
+#  389: pushint		0
+#  394: pushstring	'o.f3='
+#  405: getglobal	3
+#  410: getfield	2
+#  415: pushint		2
+#  420: call		println
+#  425: pop
+#  426: pushint		0
+#  431: pushint		0
+#  436: jsr		20
+#  441: pop
+#  442: pushint		0
+#  447: getglobal	3
+#  452: pushint		1
+#  457: jsr		216
+#  462: pop
+#  463: halt

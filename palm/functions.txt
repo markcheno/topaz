@@ -1,0 +1,60 @@
+Key:
+i = integer
+r = real
+s = string
+v = value = i/r/s or expr
+
+Output
+------
+print(v {,v} )
+println(v {,v} )
+printf(sFmt {,v} )
+
+Graphics
+--------
+clear 
+drawrect(ix,iy,iw,ih)
+eraserect(ix,iy,iw,ih)
+drawpoint(ix,iy)
+drawline(ix1,iy1,ix2,iy2)
+printxy(ix,iy,s)
+i = penx
+i = peny
+i = key
+i = event(iTimeout)
+iID = button(ix,iy,iw,ih,s)
+iID = field(x,y,w,h)
+s = getfield(iID)
+
+Misc
+----
+i = beep
+i = delay(iTicks)
+i = yield
+
+Math
+----
+r = sin(r)
+r = sindg(r)
+r = cos(r)
+r = cosdg(r)
+r = tan(r)
+r = tandg(r)
+r = cot(r)
+r = cotdg(r)
+r = floor(r)
+r = ceil(r)
+r = sqrt(r)
+r = pow(r,i)
+r = abs(r)
+i = random(i)
+
+Types
+-----
+s = getType(v)
+isInt(v)
+i = toInt(v)
+isReal(v)
+r = toReal(v)
+isString(v)
+s = toString(v)

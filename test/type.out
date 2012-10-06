@@ -1,0 +1,22 @@
+t = 1 + 1
+value=2, type=int
+t = 2 + 3.5
+value=5.5000, type=real
+t = 3 + "10"
+value=13, type=int
+
+t = 1.0 + 1
+value=2.0000, type=real
+t = 2.0 + 3.5
+value=5.5000, type=real
+t = 3.0 + "3.6"
+value=6.6000, type=real
+
+t = "1.0" + 1
+value=2.0000, type=real
+t = "2.0" + 2.0
+value=4.0000, type=real
+len of int    is: 1
+len of real   is: 1
+len of string is: 9
+len of array  is: 69

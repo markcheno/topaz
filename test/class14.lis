@@ -1,0 +1,123 @@
+#    0: adjs		1
+#    5: jmp		154
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushstring	'Grandfather'
+#   37: setfield	0
+#   42: jmp		96
+#   47: link		0
+#   52: pushint		0
+#   57: pushstring	'Grandfather: init'
+#   80: pushint		1
+#   85: call		println
+#   90: pop
+#   91: rts		2
+#   96: jmp		148
+#  101: link		0
+#  106: pushint		0
+#  111: pushstring	'Grandfather: xx'
+#  132: pushint		1
+#  137: call		println
+#  142: pop
+#  143: rts		2
+#  148: nop
+#  149: rts		2
+#  154: jmp		262
+#  159: link		0
+#  164: getlocal	-2
+#  169: pushstring	'Father'
+#  181: setfield	1
+#  186: jmp		256
+#  191: link		0
+#  196: pushint		0
+#  201: getlocal	-2
+#  206: pushint		1
+#  211: jsr		47
+#  216: pop
+#  217: pushint		0
+#  222: pushstring	'Father: init'
+#  240: pushint		1
+#  245: call		println
+#  250: pop
+#  251: rts		2
+#  256: nop
+#  257: rts		2
+#  262: jmp		385
+#  267: link		0
+#  272: getlocal	-2
+#  277: pushstring	'Son'
+#  286: setfield	2
+#  291: jmp		379
+#  296: link		0
+#  301: pushint		0
+#  306: getlocal	-2
+#  311: pushint		1
+#  316: jsr		191
+#  321: pop
+#  322: pushint		0
+#  327: pushstring	'Son: init'
+#  342: pushint		1
+#  347: call		println
+#  352: pop
+#  353: pushint		0
+#  358: getlocal	-2
+#  363: pushint		1
+#  368: jsr		101
+#  373: pop
+#  374: rts		2
+#  379: nop
+#  380: rts		2
+#  385: newclass	3
+#  390: setglobal	0
+#  395: pushint		0
+#  400: getglobal	0
+#  405: pushint		1
+#  410: call		new
+#  415: pop
+#  416: pushint		0
+#  421: getglobal	0
+#  426: pushint		1
+#  431: jsr		10
+#  436: pop
+#  437: pushint		0
+#  442: getglobal	0
+#  447: pushint		1
+#  452: jsr		159
+#  457: pop
+#  458: pushint		0
+#  463: getglobal	0
+#  468: pushint		1
+#  473: jsr		267
+#  478: pop
+#  479: pushint		0
+#  484: getglobal	0
+#  489: pushint		1
+#  494: jsr		296
+#  499: pop
+#  500: pushint		0
+#  505: getglobal	0
+#  510: pushint		1
+#  515: jsr		101
+#  520: pop
+#  521: pushint		0
+#  526: pushstring	'x.f1='
+#  537: getglobal	0
+#  542: getfield	0
+#  547: pushint		2
+#  552: call		println
+#  557: pop
+#  558: pushint		0
+#  563: pushstring	'x.f2='
+#  574: getglobal	0
+#  579: getfield	1
+#  584: pushint		2
+#  589: call		println
+#  594: pop
+#  595: pushint		0
+#  600: pushstring	'x.f3='
+#  611: getglobal	0
+#  616: getfield	2
+#  621: pushint		2
+#  626: call		println
+#  631: pop
+#  632: halt

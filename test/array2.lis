@@ -1,0 +1,259 @@
+#    0: adjs		6
+#    5: pushint		5
+#   10: newarray
+#   11: dup
+#   12: pushint		0
+#   17: pushint		1
+#   22: setarray
+#   23: dup
+#   24: pushint		1
+#   29: pushint		2
+#   34: setarray
+#   35: dup
+#   36: pushint		2
+#   41: pushint		3
+#   46: setarray
+#   47: dup
+#   48: pushint		3
+#   53: pushint		4
+#   58: setarray
+#   59: dup
+#   60: pushint		4
+#   65: pushint		5
+#   70: setarray
+#   71: setglobal	0
+#   76: pushint		0
+#   81: setglobal	1
+#   86: getglobal	1
+#   91: pushint		5
+#   96: lss
+#   97: jnz		128
+#  102: jmp		186
+#  107: getglobal	1
+#  112: pushint		1
+#  117: add
+#  118: setglobal	1
+#  123: jmp		86
+#  128: pushint		0
+#  133: pushstring	'array1['
+#  146: getglobal	1
+#  151: pushstring	']='
+#  159: getglobal	0
+#  164: getglobal	1
+#  169: getarray
+#  170: pushint		4
+#  175: call		println
+#  180: pop
+#  181: jmp		107
+#  186: pushint		5
+#  191: newarray
+#  192: dup
+#  193: pushint		0
+#  198: pushreal	1.1000
+#  203: setarray
+#  204: dup
+#  205: pushint		1
+#  210: pushreal	2.2000
+#  215: setarray
+#  216: dup
+#  217: pushint		2
+#  222: pushreal	3.3000
+#  227: setarray
+#  228: dup
+#  229: pushint		3
+#  234: pushreal	4.4000
+#  239: setarray
+#  240: dup
+#  241: pushint		4
+#  246: pushreal	5.5000
+#  251: setarray
+#  252: setglobal	2
+#  257: pushint		0
+#  262: setglobal	1
+#  267: getglobal	1
+#  272: pushint		5
+#  277: lss
+#  278: jnz		309
+#  283: jmp		367
+#  288: getglobal	1
+#  293: pushint		1
+#  298: add
+#  299: setglobal	1
+#  304: jmp		267
+#  309: pushint		0
+#  314: pushstring	'array2['
+#  327: getglobal	1
+#  332: pushstring	']='
+#  340: getglobal	2
+#  345: getglobal	1
+#  350: getarray
+#  351: pushint		4
+#  356: call		println
+#  361: pop
+#  362: jmp		288
+#  367: pushint		5
+#  372: newarray
+#  373: dup
+#  374: pushint		0
+#  379: pushstring	'Mark'
+#  389: setarray
+#  390: dup
+#  391: pushint		1
+#  396: pushstring	'Debby'
+#  407: setarray
+#  408: dup
+#  409: pushint		2
+#  414: pushstring	'Taylor'
+#  426: setarray
+#  427: dup
+#  428: pushint		3
+#  433: pushstring	'Colin'
+#  444: setarray
+#  445: dup
+#  446: pushint		4
+#  451: pushstring	'Spot'
+#  461: setarray
+#  462: setglobal	3
+#  467: pushint		0
+#  472: setglobal	1
+#  477: getglobal	1
+#  482: pushint		5
+#  487: lss
+#  488: jnz		519
+#  493: jmp		577
+#  498: getglobal	1
+#  503: pushint		1
+#  508: add
+#  509: setglobal	1
+#  514: jmp		477
+#  519: pushint		0
+#  524: pushstring	'array3['
+#  537: getglobal	1
+#  542: pushstring	']='
+#  550: getglobal	3
+#  555: getglobal	1
+#  560: getarray
+#  561: pushint		4
+#  566: call		println
+#  571: pop
+#  572: jmp		498
+#  577: pushint		5
+#  582: newarray
+#  583: dup
+#  584: pushint		0
+#  589: pushint		1
+#  594: setarray
+#  595: dup
+#  596: pushint		1
+#  601: pushreal	2.0000
+#  606: setarray
+#  607: dup
+#  608: pushint		2
+#  613: pushstring	'Three'
+#  624: setarray
+#  625: dup
+#  626: pushint		3
+#  631: pushint		4
+#  636: setarray
+#  637: dup
+#  638: pushint		4
+#  643: pushstring	'five'
+#  653: setarray
+#  654: setglobal	4
+#  659: pushint		0
+#  664: setglobal	1
+#  669: getglobal	1
+#  674: pushint		5
+#  679: lss
+#  680: jnz		711
+#  685: jmp		769
+#  690: getglobal	1
+#  695: pushint		1
+#  700: add
+#  701: setglobal	1
+#  706: jmp		669
+#  711: pushint		0
+#  716: pushstring	'array4['
+#  729: getglobal	1
+#  734: pushstring	']='
+#  742: getglobal	4
+#  747: getglobal	1
+#  752: getarray
+#  753: pushint		4
+#  758: call		println
+#  763: pop
+#  764: jmp		690
+#  769: pushint		25
+#  774: newarray
+#  775: dup
+#  776: pushint		0
+#  781: pushstring	'start'
+#  792: setarray
+#  793: dup
+#  794: pushint		1
+#  799: pushint		1
+#  804: setarray
+#  805: dup
+#  806: pushint		2
+#  811: pushint		2
+#  816: setarray
+#  817: dup
+#  818: pushint		3
+#  823: pushint		3
+#  828: setarray
+#  829: dup
+#  830: pushint		4
+#  835: pushint		8
+#  840: pushint		69
+#  845: setslice
+#  846: dup
+#  847: pushint		9
+#  852: pushint		18
+#  857: pushint		2
+#  862: setslice
+#  863: dup
+#  864: pushint		19
+#  869: pushint		3
+#  874: setarray
+#  875: dup
+#  876: pushint		20
+#  881: pushstring	'three'
+#  892: setarray
+#  893: dup
+#  894: pushint		21
+#  899: pushint		22
+#  904: pushreal	3.1415
+#  909: setslice
+#  910: dup
+#  911: pushint		23
+#  916: pushstring	'end'
+#  925: setarray
+#  926: dup
+#  927: pushint		24
+#  932: pushint		0
+#  937: setarray
+#  938: setglobal	5
+#  943: pushint		0
+#  948: setglobal	1
+#  953: getglobal	5
+#  958: getglobal	1
+#  963: getarray
+#  964: jnz		995
+#  969: jmp		1053
+#  974: getglobal	1
+#  979: pushint		1
+#  984: add
+#  985: setglobal	1
+#  990: jmp		953
+#  995: pushint		0
+# 1000: pushstring	'array5['
+# 1013: getglobal	1
+# 1018: pushstring	']='
+# 1026: getglobal	5
+# 1031: getglobal	1
+# 1036: getarray
+# 1037: pushint		4
+# 1042: call		println
+# 1047: pop
+# 1048: jmp		974
+# 1053: halt

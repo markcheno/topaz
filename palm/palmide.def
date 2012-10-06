@@ -1,0 +1,2 @@
+application { "Topaz" MCC1 stack=4096 }
+multiple code { "sect1" "sect2" }

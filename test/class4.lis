@@ -1,0 +1,93 @@
+#    0: adjs		3
+#    5: jmp		54
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		5
+#   25: newarray
+#   26: dup
+#   27: pushint		0
+#   32: pushint		4
+#   37: pushint		0
+#   42: setslice
+#   43: setfield	0
+#   48: nop
+#   49: rts		2
+#   54: pushint		5
+#   59: newarray
+#   60: dup
+#   61: pushint		0
+#   66: pushint		4
+#   71: pushint		0
+#   76: setslice
+#   77: setglobal	0
+#   82: newclass	1
+#   87: setglobal	1
+#   92: pushint		0
+#   97: getglobal	1
+#  102: pushint		1
+#  107: call		new
+#  112: pop
+#  113: pushint		0
+#  118: getglobal	1
+#  123: pushint		1
+#  128: jsr		10
+#  133: pop
+#  134: pushint		0
+#  139: setglobal	2
+#  144: getglobal	2
+#  149: pushint		5
+#  154: lss
+#  155: jnz		186
+#  160: jmp		234
+#  165: getglobal	2
+#  170: pushint		1
+#  175: add
+#  176: setglobal	2
+#  181: jmp		144
+#  186: getglobal	0
+#  191: getglobal	2
+#  196: getglobal	2
+#  201: setarray
+#  202: getglobal	1
+#  207: getfield	0
+#  212: getglobal	2
+#  217: getglobal	2
+#  222: pushint		10
+#  227: add
+#  228: setarray
+#  229: jmp		165
+#  234: pushint		0
+#  239: setglobal	2
+#  244: getglobal	2
+#  249: pushint		5
+#  254: lss
+#  255: jnz		286
+#  260: jmp		394
+#  265: getglobal	2
+#  270: pushint		1
+#  275: add
+#  276: setglobal	2
+#  281: jmp		244
+#  286: pushint		0
+#  291: pushstring	'a['
+#  299: getglobal	2
+#  304: pushstring	']='
+#  312: getglobal	0
+#  317: getglobal	2
+#  322: getarray
+#  323: pushint		4
+#  328: call		println
+#  333: pop
+#  334: pushint		0
+#  339: pushstring	'x.a['
+#  349: getglobal	2
+#  354: pushstring	']='
+#  362: getglobal	1
+#  367: getfield	0
+#  372: getglobal	2
+#  377: getarray
+#  378: pushint		4
+#  383: call		println
+#  388: pop
+#  389: jmp		265
+#  394: halt

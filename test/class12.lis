@@ -1,0 +1,168 @@
+#    0: adjs		1
+#    5: jmp		36
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushreal	3.1416
+#   25: setfield	0
+#   30: nop
+#   31: rts		2
+#   36: jmp		83
+#   41: link		0
+#   46: jmp		77
+#   51: link		0
+#   56: getlocal	-3
+#   61: getlocal	-3
+#   66: mul
+#   67: setlocal	-4
+#   72: rts		3
+#   77: nop
+#   78: rts		2
+#   83: jmp		463
+#   88: link		0
+#   93: getlocal	-2
+#   98: getlocal	-2
+#  103: getfield	0
+#  108: setfield	1
+#  113: getlocal	-2
+#  118: pushint		3
+#  123: newarray
+#  124: dup
+#  125: pushint		0
+#  130: pushint		3
+#  135: setarray
+#  136: dup
+#  137: pushint		1
+#  142: pushint		4
+#  147: setarray
+#  148: dup
+#  149: pushint		2
+#  154: pushint		5
+#  159: setarray
+#  160: setfield	2
+#  165: jmp		457
+#  170: link		2
+#  175: pushint		3
+#  180: newarray
+#  181: dup
+#  182: pushint		0
+#  187: pushint		1
+#  192: setarray
+#  193: dup
+#  194: pushint		1
+#  199: pushint		2
+#  204: setarray
+#  205: dup
+#  206: pushint		2
+#  211: pushint		3
+#  216: setarray
+#  217: setlocal	0
+#  222: pushint		0
+#  227: pushstring	'a[0]='
+#  238: getlocal	0
+#  243: pushint		0
+#  248: getarray
+#  249: pushint		2
+#  254: call		println
+#  259: pop
+#  260: pushint		0
+#  265: pushstring	'array[0]='
+#  280: getlocal	-2
+#  285: getfield	2
+#  290: pushint		0
+#  295: getarray
+#  296: pushint		2
+#  301: call		println
+#  306: pop
+#  307: newclass	0
+#  312: setlocal	1
+#  317: pushint		0
+#  322: getlocal	1
+#  327: pushint		1
+#  332: call		new
+#  337: pop
+#  338: pushint		0
+#  343: getlocal	1
+#  348: pushint		1
+#  353: jsr		41
+#  358: pop
+#  359: pushint		0
+#  364: pushstring	'pi='
+#  373: getlocal	-2
+#  378: getfield	1
+#  383: pushint		2
+#  388: call		println
+#  393: pop
+#  394: pushint		0
+#  399: pushstring	'pi**2='
+#  411: pushint		0
+#  416: getlocal	-2
+#  421: getfield	0
+#  426: getlocal	1
+#  431: pushint		2
+#  436: jsr		51
+#  441: pushint		2
+#  446: call		println
+#  451: pop
+#  452: rts		4
+#  457: nop
+#  458: rts		2
+#  463: jmp		563
+#  468: link		1
+#  473: pushint		3
+#  478: newarray
+#  479: dup
+#  480: pushint		0
+#  485: pushint		3
+#  490: setarray
+#  491: dup
+#  492: pushint		1
+#  497: pushint		4
+#  502: setarray
+#  503: dup
+#  504: pushint		2
+#  509: pushint		5
+#  514: setarray
+#  515: setlocal	0
+#  520: pushint		0
+#  525: pushstring	'z[0]='
+#  536: getlocal	0
+#  541: pushint		0
+#  546: getarray
+#  547: pushint		2
+#  552: call		println
+#  557: pop
+#  558: rts		2
+#  563: newclass	3
+#  568: setglobal	0
+#  573: pushint		0
+#  578: getglobal	0
+#  583: pushint		1
+#  588: call		new
+#  593: pop
+#  594: pushint		0
+#  599: getglobal	0
+#  604: pushint		1
+#  609: jsr		10
+#  614: pop
+#  615: pushint		0
+#  620: getglobal	0
+#  625: pushint		1
+#  630: jsr		88
+#  635: pop
+#  636: pushint		0
+#  641: getglobal	0
+#  646: pushint		1
+#  651: jsr		170
+#  656: pop
+#  657: pushint		0
+#  662: pushstring	'x.pi='
+#  673: getglobal	0
+#  678: getfield	1
+#  683: pushint		2
+#  688: call		println
+#  693: pop
+#  694: pushint		0
+#  699: pushint		0
+#  704: jsr		468
+#  709: pop
+#  710: halt

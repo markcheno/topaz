@@ -1,0 +1,194 @@
+#    0: adjs		5
+#    5: jmp		86
+#   10: link		0
+#   15: pushint		0
+#   20: pushstring	'value='
+#   32: getlocal	-2
+#   37: pushstring	', type='
+#   50: pushint		0
+#   55: getlocal	-2
+#   60: pushint		1
+#   65: call		get_t
+#   70: pushint		4
+#   75: call		println
+#   80: pop
+#   81: rts		2
+#   86: pushint		1
+#   91: pushint		1
+#   96: add
+#   97: setglobal	0
+#  102: pushint		0
+#  107: pushstring	't = 1 + 1
+'
+#  123: pushint		1
+#  128: call		printf
+#  133: pop
+#  134: pushint		0
+#  139: getglobal	0
+#  144: pushint		1
+#  149: jsr		10
+#  154: pop
+#  155: pushint		2
+#  160: pushreal	3.5000
+#  165: add
+#  166: setglobal	0
+#  171: pushint		0
+#  176: pushstring	't = 2 + 3.5
+'
+#  194: pushint		1
+#  199: call		printf
+#  204: pop
+#  205: pushint		0
+#  210: getglobal	0
+#  215: pushint		1
+#  220: jsr		10
+#  225: pop
+#  226: pushint		3
+#  231: pushstring	'10'
+#  239: add
+#  240: setglobal	0
+#  245: pushint		0
+#  250: pushstring	't = 3 + "10"
+'
+#  269: pushint		1
+#  274: call		printf
+#  279: pop
+#  280: pushint		0
+#  285: getglobal	0
+#  290: pushint		1
+#  295: jsr		10
+#  300: pop
+#  301: pushint		0
+#  306: pushint		0
+#  311: call		println
+#  316: pop
+#  317: pushreal	1.0000
+#  322: pushint		1
+#  327: add
+#  328: setglobal	0
+#  333: pushint		0
+#  338: pushstring	't = 1.0 + 1
+'
+#  356: pushint		1
+#  361: call		printf
+#  366: pop
+#  367: pushint		0
+#  372: getglobal	0
+#  377: pushint		1
+#  382: jsr		10
+#  387: pop
+#  388: pushreal	2.0000
+#  393: pushreal	3.5000
+#  398: add
+#  399: setglobal	0
+#  404: pushint		0
+#  409: pushstring	't = 2.0 + 3.5
+'
+#  429: pushint		1
+#  434: call		printf
+#  439: pop
+#  440: pushint		0
+#  445: getglobal	0
+#  450: pushint		1
+#  455: jsr		10
+#  460: pop
+#  461: pushreal	3.0000
+#  466: pushstring	'3.6'
+#  475: add
+#  476: setglobal	0
+#  481: pushint		0
+#  486: pushstring	't = 3.0 + "3.6"
+'
+#  508: pushint		1
+#  513: call		printf
+#  518: pop
+#  519: pushint		0
+#  524: getglobal	0
+#  529: pushint		1
+#  534: jsr		10
+#  539: pop
+#  540: pushint		0
+#  545: pushint		0
+#  550: call		println
+#  555: pop
+#  556: pushstring	'1.0'
+#  565: pushint		1
+#  570: add
+#  571: setglobal	0
+#  576: pushint		0
+#  581: pushstring	't = "1.0" + 1
+'
+#  601: pushint		1
+#  606: call		printf
+#  611: pop
+#  612: pushint		0
+#  617: getglobal	0
+#  622: pushint		1
+#  627: jsr		10
+#  632: pop
+#  633: pushstring	'2.0'
+#  642: pushreal	2.0000
+#  647: add
+#  648: setglobal	0
+#  653: pushint		0
+#  658: pushstring	't = "2.0" + 2.0
+'
+#  680: pushint		1
+#  685: call		printf
+#  690: pop
+#  691: pushint		0
+#  696: getglobal	0
+#  701: pushint		1
+#  706: jsr		10
+#  711: pop
+#  712: pushint		1
+#  717: setglobal	1
+#  722: pushreal	3.1416
+#  727: setglobal	2
+#  732: pushstring	'Chenoweth'
+#  747: setglobal	3
+#  752: pushint		69
+#  757: newarray
+#  758: dup
+#  759: pushint		0
+#  764: pushint		68
+#  769: pushint		5
+#  774: setslice
+#  775: setglobal	4
+#  780: pushint		0
+#  785: pushstring	'len of int    is: '
+#  809: pushint		0
+#  814: getglobal	1
+#  819: pushint		1
+#  824: call		len
+#  829: pushint		2
+#  834: call		println
+#  839: pop
+#  840: pushint		0
+#  845: pushstring	'len of real   is: '
+#  869: pushint		0
+#  874: getglobal	2
+#  879: pushint		1
+#  884: call		len
+#  889: pushint		2
+#  894: call		println
+#  899: pop
+#  900: pushint		0
+#  905: pushstring	'len of string is: '
+#  929: pushint		0
+#  934: getglobal	3
+#  939: pushint		1
+#  944: call		len
+#  949: pushint		2
+#  954: call		println
+#  959: pop
+#  960: pushint		0
+#  965: pushstring	'len of array  is: '
+#  989: pushint		0
+#  994: getglobal	4
+#  999: pushint		1
+# 1004: call		len
+# 1009: pushint		2
+# 1014: call		println
+# 1019: pop
+# 1020: halt

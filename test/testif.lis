@@ -1,0 +1,64 @@
+#    0: adjs		2
+#    5: jmp		50
+#   10: link		0
+#   15: pushint		0
+#   20: pushstring	'In Range'
+#   34: pushint		1
+#   39: call		println
+#   44: pop
+#   45: rts		1
+#   50: jmp		99
+#   55: link		0
+#   60: pushint		0
+#   65: pushstring	'Out of Range'
+#   83: pushint		1
+#   88: call		println
+#   93: pop
+#   94: rts		1
+#   99: jmp		139
+#  104: link		0
+#  109: pushint		0
+#  114: pushstring	'xxx'
+#  123: pushint		1
+#  128: call		println
+#  133: pop
+#  134: rts		1
+#  139: pushint		5
+#  144: setglobal	0
+#  149: pushint		80
+#  154: setglobal	1
+#  159: getglobal	1
+#  164: pushint		0
+#  169: lss
+#  170: getglobal	1
+#  175: pushint		160
+#  180: getglobal	0
+#  185: sub
+#  186: gtr
+#  187: or
+#  188: jz		214
+#  193: pushint		0
+#  198: pushint		0
+#  203: jsr		55
+#  208: pop
+#  209: jmp		230
+#  214: pushint		0
+#  219: pushint		0
+#  224: jsr		10
+#  229: pop
+#  230: getglobal	1
+#  235: pushint		160
+#  240: getglobal	0
+#  245: sub
+#  246: gtr
+#  247: jz		273
+#  252: pushint		0
+#  257: pushint		0
+#  262: jsr		55
+#  267: pop
+#  268: jmp		289
+#  273: pushint		0
+#  278: pushint		0
+#  283: jsr		10
+#  288: pop
+#  289: halt

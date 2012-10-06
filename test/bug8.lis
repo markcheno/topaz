@@ -1,0 +1,36 @@
+#    0: adjs		1
+#    5: pushint		2
+#   10: setglobal	0
+#   15: jmp		87
+#   20: link		1
+#   25: pushint		0
+#   30: setlocal	0
+#   35: getlocal	0
+#   40: getglobal	0
+#   45: lss
+#   46: jnz		77
+#   51: jmp		82
+#   56: getlocal	0
+#   61: pushint		1
+#   66: add
+#   67: setlocal	0
+#   72: jmp		35
+#   77: jmp		56
+#   82: rts		2
+#   87: pushint		0
+#   92: pushstring	'x='
+#  100: getglobal	0
+#  105: pushint		2
+#  110: call		println
+#  115: pop
+#  116: pushint		0
+#  121: pushint		0
+#  126: jsr		20
+#  131: pop
+#  132: pushint		0
+#  137: pushstring	'x='
+#  145: getglobal	0
+#  150: pushint		2
+#  155: call		println
+#  160: pop
+#  161: halt

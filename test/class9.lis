@@ -1,0 +1,121 @@
+#    0: adjs		1
+#    5: jmp		107
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		0
+#   25: setfield	0
+#   30: jmp		71
+#   35: link		0
+#   40: getlocal	-2
+#   45: getlocal	-2
+#   50: getfield	0
+#   55: pushint		1
+#   60: add
+#   61: setfield	0
+#   66: rts		2
+#   71: jmp		101
+#   76: link		0
+#   81: getlocal	-2
+#   86: getfield	0
+#   91: setlocal	-3
+#   96: rts		2
+#  101: nop
+#  102: rts		2
+#  107: jmp		276
+#  112: link		0
+#  117: getlocal	-2
+#  122: pushstring	'nobody'
+#  134: setfield	1
+#  139: jmp		169
+#  144: link		0
+#  149: getlocal	-2
+#  154: getlocal	-3
+#  159: setfield	1
+#  164: rts		3
+#  169: jmp		199
+#  174: link		0
+#  179: getlocal	-2
+#  184: getlocal	-3
+#  189: setfield	1
+#  194: rts		3
+#  199: jmp		229
+#  204: link		0
+#  209: getlocal	-2
+#  214: getfield	1
+#  219: setlocal	-3
+#  224: rts		2
+#  229: jmp		270
+#  234: link		0
+#  239: getlocal	-2
+#  244: getlocal	-2
+#  249: getfield	0
+#  254: pushint		1
+#  259: sub
+#  260: setfield	0
+#  265: rts		2
+#  270: nop
+#  271: rts		2
+#  276: newclass	2
+#  281: setglobal	0
+#  286: pushint		0
+#  291: getglobal	0
+#  296: pushint		1
+#  301: call		new
+#  306: pop
+#  307: pushint		0
+#  312: getglobal	0
+#  317: pushint		1
+#  322: jsr		10
+#  327: pop
+#  328: pushint		0
+#  333: getglobal	0
+#  338: pushint		1
+#  343: jsr		112
+#  348: pop
+#  349: pushint		0
+#  354: pushstring	'Mark'
+#  364: getglobal	0
+#  369: pushint		2
+#  374: jsr		144
+#  379: pop
+#  380: pushint		0
+#  385: getglobal	0
+#  390: pushint		1
+#  395: jsr		35
+#  400: pop
+#  401: pushint		0
+#  406: getglobal	0
+#  411: pushint		1
+#  416: jsr		35
+#  421: pop
+#  422: pushint		0
+#  427: getglobal	0
+#  432: pushint		1
+#  437: jsr		35
+#  442: pop
+#  443: pushint		0
+#  448: getglobal	0
+#  453: pushint		1
+#  458: jsr		234
+#  463: pop
+#  464: pushint		0
+#  469: pushstring	'cart owner = %s
+'
+#  491: pushint		0
+#  496: getglobal	0
+#  501: pushint		1
+#  506: jsr		204
+#  511: pushint		2
+#  516: call		printf
+#  521: pop
+#  522: pushint		0
+#  527: pushstring	'number of items = %d
+'
+#  554: pushint		0
+#  559: getglobal	0
+#  564: pushint		1
+#  569: jsr		76
+#  574: pushint		2
+#  579: call		printf
+#  584: pop
+#  585: halt

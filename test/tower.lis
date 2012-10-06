@@ -1,0 +1,64 @@
+#    0: adjs		1
+#    5: jmp		67
+#   10: link		0
+#   15: pushint		0
+#   20: pushstring	'Move '
+#   31: getlocal	-3
+#   36: pushstring	' to '
+#   46: getlocal	-2
+#   51: pushint		4
+#   56: call		println
+#   61: pop
+#   62: rts		3
+#   67: jmp		213
+#   72: link		0
+#   77: getlocal	-5
+#   82: pushint		0
+#   87: gtr
+#   88: jz		208
+#   93: pushint		0
+#   98: getlocal	-5
+#  103: pushint		1
+#  108: sub
+#  109: getlocal	-4
+#  114: getlocal	-2
+#  119: getlocal	-3
+#  124: pushint		4
+#  129: jsr		72
+#  134: pop
+#  135: pushint		0
+#  140: getlocal	-4
+#  145: getlocal	-3
+#  150: pushint		2
+#  155: jsr		10
+#  160: pop
+#  161: pushint		0
+#  166: getlocal	-5
+#  171: pushint		1
+#  176: sub
+#  177: getlocal	-2
+#  182: getlocal	-3
+#  187: getlocal	-4
+#  192: pushint		4
+#  197: jsr		72
+#  202: pop
+#  203: jmp		208
+#  208: rts		5
+#  213: pushint		5
+#  218: setglobal	0
+#  223: pushint		0
+#  228: pushstring	'Towers of Hanoi for: '
+#  255: getglobal	0
+#  260: pushstring	' disks'
+#  272: pushint		3
+#  277: call		println
+#  282: pop
+#  283: pushint		0
+#  288: getglobal	0
+#  293: pushint		1
+#  298: pushint		3
+#  303: pushint		2
+#  308: pushint		4
+#  313: jsr		72
+#  318: pop
+#  319: halt

@@ -1,0 +1,117 @@
+#    0: adjs		1
+#    5: jmp		134
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		2
+#   25: setfield	0
+#   30: getlocal	-2
+#   35: pushint		2
+#   40: setfield	1
+#   45: jmp		128
+#   50: link		0
+#   55: pushint		0
+#   60: pushstring	'x='
+#   68: getlocal	-2
+#   73: getfield	0
+#   78: pushint		2
+#   83: call		println
+#   88: pop
+#   89: pushint		0
+#   94: pushstring	'y='
+#  102: getlocal	-2
+#  107: getfield	1
+#  112: pushint		2
+#  117: call		println
+#  122: pop
+#  123: rts		2
+#  128: nop
+#  129: rts		2
+#  134: jmp		282
+#  139: link		0
+#  144: getlocal	-2
+#  149: pushint		2
+#  154: setfield	2
+#  159: jmp		276
+#  164: link		0
+#  169: pushint		0
+#  174: pushstring	'x='
+#  182: getlocal	-2
+#  187: getfield	0
+#  192: pushint		2
+#  197: call		println
+#  202: pop
+#  203: pushint		0
+#  208: pushstring	'y='
+#  216: getlocal	-2
+#  221: getfield	1
+#  226: pushint		2
+#  231: call		println
+#  236: pop
+#  237: pushint		0
+#  242: pushstring	'z='
+#  250: getlocal	-2
+#  255: getfield	2
+#  260: pushint		2
+#  265: call		println
+#  270: pop
+#  271: rts		2
+#  276: nop
+#  277: rts		2
+#  282: newclass	3
+#  287: setglobal	0
+#  292: pushint		0
+#  297: getglobal	0
+#  302: pushint		1
+#  307: call		new
+#  312: pop
+#  313: pushint		0
+#  318: getglobal	0
+#  323: pushint		1
+#  328: jsr		10
+#  333: pop
+#  334: pushint		0
+#  339: getglobal	0
+#  344: pushint		1
+#  349: jsr		139
+#  354: pop
+#  355: getglobal	0
+#  360: pushint		4
+#  365: setfield	0
+#  370: getglobal	0
+#  375: pushint		5
+#  380: setfield	1
+#  385: getglobal	0
+#  390: pushint		6
+#  395: setfield	2
+#  400: pushint		0
+#  405: getglobal	0
+#  410: pushint		1
+#  415: jsr		50
+#  420: pop
+#  421: pushint		0
+#  426: getglobal	0
+#  431: pushint		1
+#  436: jsr		164
+#  441: pop
+#  442: pushint		0
+#  447: pushstring	'p2.x='
+#  458: getglobal	0
+#  463: getfield	0
+#  468: pushint		2
+#  473: call		println
+#  478: pop
+#  479: pushint		0
+#  484: pushstring	'p2.y='
+#  495: getglobal	0
+#  500: getfield	1
+#  505: pushint		2
+#  510: call		println
+#  515: pop
+#  516: pushint		0
+#  521: pushstring	'p2.z='
+#  532: getglobal	0
+#  537: getfield	2
+#  542: pushint		2
+#  547: call		println
+#  552: pop
+#  553: halt

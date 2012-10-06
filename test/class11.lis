@@ -1,0 +1,21 @@
+#    0: adjs		1
+#    5: newclass	2
+#   10: setglobal	0
+#   15: pushint		0
+#   20: getglobal	0
+#   25: pushint		1
+#   30: call		new
+#   35: pop
+#   36: pushint		0
+#   41: pushint		10
+#   46: pushint		125
+#   51: getglobal	0
+#   56: pushint		3
+#   61: call		setXY
+#   66: pop
+#   67: pushint		0
+#   72: getglobal	0
+#   77: pushint		1
+#   82: call		show
+#   87: pop
+#   88: halt

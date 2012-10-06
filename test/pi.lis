@@ -1,0 +1,159 @@
+#    0: adjs		9
+#    5: pushint		100
+#   10: setglobal	0
+#   15: pushint		10
+#   20: getglobal	0
+#   25: mul
+#   26: pushint		3
+#   31: div
+#   32: setglobal	1
+#   37: pushint		333
+#   42: newarray
+#   43: dup
+#   44: pushint		0
+#   49: pushint		332
+#   54: pushint		2
+#   59: setslice
+#   60: setglobal	2
+#   65: pushint		0
+#   70: setglobal	3
+#   75: pushint		0
+#   80: setglobal	4
+#   85: pushint		0
+#   90: setglobal	5
+#   95: getglobal	5
+#  100: getglobal	0
+#  105: lss
+#  106: jnz		137
+#  111: jmp		631
+#  116: getglobal	5
+#  121: pushint		1
+#  126: add
+#  127: setglobal	5
+#  132: jmp		95
+#  137: pushint		0
+#  142: setglobal	6
+#  147: getglobal	1
+#  152: setglobal	7
+#  157: getglobal	7
+#  162: jnz		193
+#  167: jmp		306
+#  172: getglobal	7
+#  177: pushint		1
+#  182: sub
+#  183: setglobal	7
+#  188: jmp		157
+#  193: pushint		10
+#  198: getglobal	2
+#  203: getglobal	7
+#  208: pushint		1
+#  213: sub
+#  214: getarray
+#  215: mul
+#  216: getglobal	6
+#  221: getglobal	7
+#  226: mul
+#  227: add
+#  228: setglobal	8
+#  233: getglobal	2
+#  238: getglobal	7
+#  243: pushint		1
+#  248: sub
+#  249: getglobal	8
+#  254: pushint		2
+#  259: getglobal	7
+#  264: mul
+#  265: pushint		1
+#  270: sub
+#  271: mod
+#  272: setarray
+#  273: getglobal	8
+#  278: pushint		2
+#  283: getglobal	7
+#  288: mul
+#  289: pushint		1
+#  294: sub
+#  295: div
+#  296: setglobal	6
+#  301: jmp		172
+#  306: getglobal	2
+#  311: pushint		0
+#  316: getglobal	6
+#  321: pushint		10
+#  326: mod
+#  327: setarray
+#  328: getglobal	6
+#  333: pushint		10
+#  338: div
+#  339: setglobal	6
+#  344: getglobal	6
+#  349: pushint		9
+#  354: eql
+#  355: jz		381
+#  360: getglobal	3
+#  365: pushint		1
+#  370: add
+#  371: setglobal	3
+#  376: jmp		626
+#  381: getglobal	6
+#  386: pushint		10
+#  391: eql
+#  392: jz		517
+#  397: pushint		0
+#  402: pushstring	'%d'
+#  410: getglobal	4
+#  415: pushint		1
+#  420: add
+#  421: pushint		2
+#  426: call		printf
+#  431: pop
+#  432: pushint		0
+#  437: setglobal	4
+#  442: getglobal	3
+#  447: jnz		478
+#  452: jmp		512
+#  457: getglobal	3
+#  462: pushint		1
+#  467: sub
+#  468: setglobal	3
+#  473: jmp		442
+#  478: pushint		0
+#  483: pushstring	'%d'
+#  491: pushint		0
+#  496: pushint		2
+#  501: call		printf
+#  506: pop
+#  507: jmp		457
+#  512: jmp		626
+#  517: pushint		0
+#  522: pushstring	'%d'
+#  530: getglobal	4
+#  535: pushint		2
+#  540: call		printf
+#  545: pop
+#  546: getglobal	6
+#  551: setglobal	4
+#  556: getglobal	3
+#  561: jnz		592
+#  566: jmp		626
+#  571: getglobal	3
+#  576: pushint		1
+#  581: sub
+#  582: setglobal	3
+#  587: jmp		556
+#  592: pushint		0
+#  597: pushstring	'%d'
+#  605: pushint		9
+#  610: pushint		2
+#  615: call		printf
+#  620: pop
+#  621: jmp		571
+#  626: jmp		116
+#  631: pushint		0
+#  636: pushstring	'%d
+'
+#  645: getglobal	4
+#  650: pushint		2
+#  655: call		printf
+#  660: pop
+#  661: halt

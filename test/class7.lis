@@ -1,0 +1,143 @@
+#    0: adjs		2
+#    5: jmp		228
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		10
+#   25: setfield	0
+#   30: getlocal	-2
+#   35: pushint		10
+#   40: setfield	1
+#   45: getlocal	-2
+#   50: pushint		10
+#   55: setfield	2
+#   60: jmp		105
+#   65: link		0
+#   70: getlocal	-2
+#   75: getlocal	-4
+#   80: setfield	0
+#   85: getlocal	-2
+#   90: getlocal	-3
+#   95: setfield	1
+#  100: rts		4
+#  105: jmp		222
+#  110: link		0
+#  115: pushint		0
+#  120: pushstring	'x='
+#  128: getlocal	-2
+#  133: getfield	0
+#  138: pushint		2
+#  143: call		println
+#  148: pop
+#  149: pushint		0
+#  154: pushstring	'y='
+#  162: getlocal	-2
+#  167: getfield	1
+#  172: pushint		2
+#  177: call		println
+#  182: pop
+#  183: pushint		0
+#  188: pushstring	'z='
+#  196: getlocal	-2
+#  201: getfield	2
+#  206: pushint		2
+#  211: call		println
+#  216: pop
+#  217: rts		2
+#  222: nop
+#  223: rts		2
+#  228: newclass	3
+#  233: setglobal	0
+#  238: pushint		0
+#  243: getglobal	0
+#  248: pushint		1
+#  253: call		new
+#  258: pop
+#  259: pushint		0
+#  264: getglobal	0
+#  269: pushint		1
+#  274: jsr		10
+#  279: pop
+#  280: pushint		0
+#  285: getglobal	0
+#  290: pushint		1
+#  295: jsr		110
+#  300: pop
+#  301: newclass	3
+#  306: setglobal	1
+#  311: pushint		0
+#  316: getglobal	1
+#  321: pushint		1
+#  326: call		new
+#  331: pop
+#  332: pushint		0
+#  337: getglobal	1
+#  342: pushint		1
+#  347: jsr		10
+#  352: pop
+#  353: pushint		0
+#  358: pushint		69
+#  363: pushint		69
+#  368: getglobal	1
+#  373: pushint		3
+#  378: jsr		65
+#  383: pop
+#  384: pushint		0
+#  389: getglobal	1
+#  394: pushint		1
+#  399: jsr		110
+#  404: pop
+#  405: pushint		0
+#  410: pushstring	'p1.x='
+#  421: getglobal	0
+#  426: getfield	0
+#  431: pushstring	'
+'
+#  438: pushint		3
+#  443: call		print
+#  448: pop
+#  449: pushint		0
+#  454: pushstring	'p1.y='
+#  465: getglobal	0
+#  470: getfield	1
+#  475: pushstring	'
+'
+#  482: pushint		3
+#  487: call		print
+#  492: pop
+#  493: pushint		0
+#  498: pushstring	'p1.z='
+#  509: getglobal	0
+#  514: getfield	2
+#  519: pushstring	'
+'
+#  526: pushint		3
+#  531: call		print
+#  536: pop
+#  537: pushint		0
+#  542: pushstring	'p2.x='
+#  553: getglobal	1
+#  558: getfield	0
+#  563: pushstring	'
+'
+#  570: pushint		3
+#  575: call		print
+#  580: pop
+#  581: pushint		0
+#  586: pushstring	'p2.y='
+#  597: getglobal	1
+#  602: getfield	1
+#  607: pushstring	'
+'
+#  614: pushint		3
+#  619: call		print
+#  624: pop
+#  625: pushint		0
+#  630: pushstring	'p2.z='
+#  641: getglobal	1
+#  646: getfield	2
+#  651: pushstring	'
+'
+#  658: pushint		3
+#  663: call		print
+#  668: pop
+#  669: halt

@@ -1,0 +1,11 @@
+#    0: adjs		1
+#    5: pushint		35
+#   10: setglobal	0
+#   15: pushint		0
+#   20: pushstring	'string=%s
+'
+#   36: getglobal	0
+#   41: pushint		2
+#   46: call		printf
+#   51: pop
+#   52: halt

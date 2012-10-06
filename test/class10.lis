@@ -1,0 +1,149 @@
+#    0: adjs		2
+#    5: jmp		251
+#   10: link		0
+#   15: getlocal	-2
+#   20: pushint		10
+#   25: setfield	0
+#   30: getlocal	-2
+#   35: pushint		20
+#   40: setfield	1
+#   45: getlocal	-2
+#   50: pushint		30
+#   55: setfield	2
+#   60: getlocal	-2
+#   65: pushint		40
+#   70: setfield	3
+#   75: jmp		245
+#   80: link		0
+#   85: pushint		0
+#   90: pushstring	'no_modifier='
+#  108: getlocal	-2
+#  113: getfield	0
+#  118: pushint		2
+#  123: call		println
+#  128: pop
+#  129: pushint		0
+#  134: pushstring	'priv='
+#  145: getlocal	-2
+#  150: getfield	1
+#  155: pushint		2
+#  160: call		println
+#  165: pop
+#  166: pushint		0
+#  171: pushstring	'prot='
+#  182: getlocal	-2
+#  187: getfield	2
+#  192: pushint		2
+#  197: call		println
+#  202: pop
+#  203: pushint		0
+#  208: pushstring	'pub ='
+#  219: getlocal	-2
+#  224: getfield	3
+#  229: pushint		2
+#  234: call		println
+#  239: pop
+#  240: rts		2
+#  245: nop
+#  246: rts		2
+#  251: jmp		448
+#  256: link		0
+#  261: jmp		442
+#  266: link		0
+#  271: pushint		0
+#  276: pushstring	'no_modifier='
+#  294: getlocal	-2
+#  299: getfield	0
+#  304: pushint		2
+#  309: call		println
+#  314: pop
+#  315: pushint		0
+#  320: pushstring	'Cannot access priv variable'
+#  353: pushint		1
+#  358: call		println
+#  363: pop
+#  364: pushint		0
+#  369: pushstring	'prot='
+#  380: getlocal	-2
+#  385: getfield	2
+#  390: pushint		2
+#  395: call		println
+#  400: pop
+#  401: pushint		0
+#  406: pushstring	'pub='
+#  416: getlocal	-2
+#  421: getfield	3
+#  426: pushint		2
+#  431: call		println
+#  436: pop
+#  437: rts		2
+#  442: nop
+#  443: rts		2
+#  448: newclass	4
+#  453: setglobal	0
+#  458: pushint		0
+#  463: getglobal	0
+#  468: pushint		1
+#  473: call		new
+#  478: pop
+#  479: pushint		0
+#  484: getglobal	0
+#  489: pushint		1
+#  494: jsr		10
+#  499: pop
+#  500: newclass	4
+#  505: setglobal	1
+#  510: pushint		0
+#  515: getglobal	1
+#  520: pushint		1
+#  525: call		new
+#  530: pop
+#  531: pushint		0
+#  536: getglobal	1
+#  541: pushint		1
+#  546: jsr		10
+#  551: pop
+#  552: pushint		0
+#  557: getglobal	1
+#  562: pushint		1
+#  567: jsr		256
+#  572: pop
+#  573: pushint		0
+#  578: getglobal	0
+#  583: pushint		1
+#  588: jsr		80
+#  593: pop
+#  594: pushint		0
+#  599: getglobal	1
+#  604: pushint		1
+#  609: jsr		266
+#  614: pop
+#  615: pushint		0
+#  620: pushstring	'dad.no_modifier='
+#  642: getglobal	0
+#  647: getfield	0
+#  652: pushint		2
+#  657: call		println
+#  662: pop
+#  663: pushint		0
+#  668: pushstring	'dad.pub='
+#  682: getglobal	0
+#  687: getfield	3
+#  692: pushint		2
+#  697: call		println
+#  702: pop
+#  703: pushint		0
+#  708: pushstring	'son.no_modifier='
+#  730: getglobal	1
+#  735: getfield	0
+#  740: pushint		2
+#  745: call		println
+#  750: pop
+#  751: pushint		0
+#  756: pushstring	'son.pub='
+#  770: getglobal	1
+#  775: getfield	3
+#  780: pushint		2
+#  785: call		println
+#  790: pop
+#  791: halt

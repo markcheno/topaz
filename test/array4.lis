@@ -1,0 +1,75 @@
+#    0: adjs		1
+#    5: pushint		3
+#   10: newarray
+#   11: dup
+#   12: pushint		0
+#   17: pushint		1
+#   22: setarray
+#   23: dup
+#   24: pushint		1
+#   29: pushint		3
+#   34: newarray
+#   35: dup
+#   36: pushint		0
+#   41: pushint		2
+#   46: setarray
+#   47: dup
+#   48: pushint		1
+#   53: pushint		3
+#   58: newarray
+#   59: dup
+#   60: pushint		0
+#   65: pushint		3
+#   70: setarray
+#   71: dup
+#   72: pushint		1
+#   77: pushint		3
+#   82: setarray
+#   83: dup
+#   84: pushint		2
+#   89: pushint		3
+#   94: setarray
+#   95: setarray
+#   96: dup
+#   97: pushint		2
+#  102: pushint		2
+#  107: setarray
+#  108: setarray
+#  109: dup
+#  110: pushint		2
+#  115: pushint		1
+#  120: setarray
+#  121: setglobal	0
+#  126: pushint		0
+#  131: pushstring	'a[1][1][1]='
+#  148: getglobal	0
+#  153: pushint		1
+#  158: getarray
+#  159: pushint		1
+#  164: getarray
+#  165: pushint		1
+#  170: getarray
+#  171: pushint		2
+#  176: call		println
+#  181: pop
+#  182: getglobal	0
+#  187: pushint		1
+#  192: getarray
+#  193: pushint		1
+#  198: getarray
+#  199: pushint		1
+#  204: pushint		69
+#  209: setarray
+#  210: pushint		0
+#  215: pushstring	'a[1][1][1]='
+#  232: getglobal	0
+#  237: pushint		1
+#  242: getarray
+#  243: pushint		1
+#  248: getarray
+#  249: pushint		1
+#  254: getarray
+#  255: pushint		2
+#  260: call		println
+#  265: pop
+#  266: halt

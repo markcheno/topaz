@@ -1,0 +1,12 @@
+no_modifier=10
+priv=20
+prot=30
+pub =40
+no_modifier=10
+Cannot access priv variable
+prot=30
+pub=40
+dad.no_modifier=10
+dad.pub=40
+son.no_modifier=10
+son.pub=40

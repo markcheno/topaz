@@ -1,0 +1,46 @@
+#    0: adjs		4
+#    5: pushint		69
+#   10: setglobal	0
+#   15: pushint		0
+#   20: pushstring	'num='
+#   30: getglobal	0
+#   35: pushint		2
+#   40: call		println
+#   45: pop
+#   46: pushreal	3.1419
+#   51: setglobal	1
+#   56: getglobal	1
+#   61: pushint		2
+#   66: mul
+#   67: setglobal	2
+#   72: pushstring	'Mark Chenoweth'
+#   92: setglobal	3
+#   97: pushint		0
+#  102: pushstring	'pi='
+#  111: getglobal	1
+#  116: pushstring	' 2*pi='
+#  128: getglobal	2
+#  133: pushint		4
+#  138: call		println
+#  143: pop
+#  144: pushint		0
+#  149: pushstring	'twopi='
+#  161: getglobal	2
+#  166: pushint		2
+#  171: call		println
+#  176: pop
+#  177: pushint		0
+#  182: pushstring	'name=%s
+'
+#  196: getglobal	3
+#  201: pushint		2
+#  206: call		printf
+#  211: pop
+#  212: pushint		0
+#  217: pushstring	'num=%d
+'
+#  230: getglobal	0
+#  235: pushint		2
+#  240: call		printf
+#  245: pop
+#  246: halt

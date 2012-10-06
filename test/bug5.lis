@@ -1,0 +1,32 @@
+#    0: adjs		1
+#    5: jmp		67
+#   10: link		0
+#   15: pushint		3
+#   20: newarray
+#   21: dup
+#   22: pushint		0
+#   27: pushint		1
+#   32: setarray
+#   33: dup
+#   34: pushint		1
+#   39: pushint		2
+#   44: setarray
+#   45: dup
+#   46: pushint		2
+#   51: pushint		3
+#   56: setarray
+#   57: setlocal	-2
+#   62: rts		1
+#   67: pushint		0
+#   72: pushint		0
+#   77: jsr		10
+#   82: setglobal	0
+#   87: pushint		0
+#   92: pushstring	'a[1]='
+#  103: getglobal	0
+#  108: pushint		1
+#  113: getarray
+#  114: pushint		2
+#  119: call		println
+#  124: pop
+#  125: halt
