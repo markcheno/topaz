@@ -1,4 +1,4 @@
-Topaz - a toy compiler/interpreter loosely based on Ruby syntax. This was originally designed to be cross platform and run under PALMOS on the Palm Pilot (see *archive* branch). It also works via the command line.
+Topaz - a toy compiler/interpreter loosely based on Ruby syntax. This was originally designed to be cross platform and run under PALMOS on the Palm Pilot (see *archive* branch). It also works via the command line. It compiles and runs, but has not been tested on 64bit machines. YMMV.
 
 There are two parts: the compiler, which compiles down to bytecode, and the interpreter, which executes the bytecode.
 
