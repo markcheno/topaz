@@ -52,13 +52,8 @@ void vm_error(const char *fmt, ... )
 		
 	va_start(argptr,fmt);
   	xvsnprintf(msg,(Int32)MAXERROR,fmt,argptr);
-	va_end(argptr);
-	
-#ifdef PALMOS
-	RuntimeErrorDialog(msg);
-#else
+	va_end(argptr);	
 	xprintf("runtime error - %s\n",msg);
-#endif
 }
 
 static void fixup(Pointer ms)

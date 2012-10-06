@@ -15,14 +15,6 @@
 /* Public interface */
 /*------------------*/
 
-#ifdef PALMOS
-#define xstrcmp(s1,s2)			StrCompare(s1,s2)
-#define xstrcpy(dst,src)		StrCopy(dst,src)
-#define xstrlen(s)				StrLen(s)
-#define xstrcat(dst,src)		StrCat(dst,src)
-#define xmemcpy(dst,src,len)	MemMove(dst,src,len)
-#define xindex(s,c) 			StrChr(s,c)
-#else
 #include <string.h>
 #define xstrcmp(s1,s2)			strcmp(s1,s2)
 #define xstrcpy(dst,src)		strcpy(dst,src)
@@ -30,7 +22,6 @@
 #define xstrcat(dst,src)		strcat(dst,src)
 #define xmemcpy(dst,src,len)	memcpy(dst,src,len)
 #define xindex(s,c) 			strchr(s,c)
-#endif
 
 Int32 xstrtol(const char *cp,char **endp,UInt16 base) xstring_sect;
 Float32 xstrtod(const char *string,char **endPtr)     xstring_sect;

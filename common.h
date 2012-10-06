@@ -6,27 +6,12 @@
 /* Additional includes */
 /*---------------------*/
 
-#ifdef PALMOS
-#include <PalmOS.h>
-#else
 #include <stdlib.h> /* for: malloc,calloc,realloc,exit */
-#endif
 
 /*---------------------*/
 /* Portable data types */
 /*---------------------*/
 
-#ifdef PALMOS
-typedef char			Int8;
-typedef short			Int16;
-typedef long			Int32;
-typedef unsigned char	Uchar;
-typedef unsigned short	UInt16;
-typedef unsigned long	UInt32;
-typedef float			Float32;
-typedef double			Float64;
-typedef char*			Pointer;
-#else
 typedef char			Int8;
 typedef short			Int16;
 typedef int 			Int32;
@@ -36,7 +21,6 @@ typedef unsigned int	UInt32;
 typedef float			Float32;
 typedef double			Float64;
 typedef char*			Pointer;
-#endif
 
 /*-------------------*/
 /* Object definition */
@@ -72,13 +56,8 @@ struct Object
 /* m68k-palmos-gcc multi segment stuff */
 /*-------------------------------------*/
 
-#ifdef PALMOS
-#define sect1 __attribute__ ((section ("sect1")))
-#define sect2 __attribute__ ((section ("sect2")))
-#else
 #define sect1
 #define sect2
-#endif
 
 #define lib_sect    	sect1
 #define array_sect  	sect2

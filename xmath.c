@@ -291,15 +291,9 @@ Float32 xfloor(Float32 x)
 	y = x;
 
 	/* find the exponent (power of 2) */
-#if defined(PALMOS) || defined(__ppc__)
-	p = (unsigned short *)&y;
-	e = (( *p >> 7) & 0xff) - 0x7f;
-	p += 1;
-#else
 	p = (unsigned short *)&y + 1;
 	e = (( *p >> 7) & 0xff) - 0x7f;
 	p -= 1;
-#endif
 
 	if( e < 0 )
 	{
@@ -314,11 +308,7 @@ Float32 xfloor(Float32 x)
 	/* clean out 16 bits at a time */
 	while( e >= 16 )
 	{
-#if defined(PALMOS) || defined(__ppc__)
-		*p-- = 0;
-#else
 		*p++ = 0;
-#endif
 		e -= 16;
 	}
 
@@ -411,12 +401,7 @@ static Float32 frexp(Float32 x,Int32 *pw2)
 	Int16 *q;
 
 	y = x;
-
-#if defined(PALMOS) || defined(__ppc__)
-	q = (short*)&y;
-#else
 	q = (short*)&y+1;
-#endif
 
 	/* find the exponent (power of 2) */
 	i  = ( *q >> 7) & 0xff;
@@ -456,11 +441,7 @@ static Float32 ldexp( Float32 x, Int32 pw2 )
 
 	y = x;
 
-#if defined(PALMOS) || defined(__ppc__)
-	q = (short*)&y;
-#else
 	q = (short*)&y + 1;
-#endif
 
 	while( (e = ( *q >> 7) & 0xff) == 0 )
 	{

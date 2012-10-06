@@ -13,13 +13,8 @@
 /* Public interface */
 /*------------------*/
 
-#ifdef PALMOS
-#define xmalloc(size)	MemPtrNew(size)
-#define xfree(p)		MemPtrFree(p)
-#else
 #define xmalloc(size)	malloc(size)
 #define xfree(p)		free(p)
-#endif
 
 void *xcalloc(Int32 nmemb,Int32 size) xstdlib_sect;
 void *xrealloc(void *ptr,Int32 size)  xstdlib_sect;

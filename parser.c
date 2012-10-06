@@ -9,11 +9,7 @@
 #include "scanner.h"
 #include "vm.h"
 #include "codegen.h"
-#ifdef PALMOS
-#include "palm/palmide.h"
-#else
 #define LibLoad(name)
-#endif
 
 #define COMPILE_ERROR   ((SymPtr)-1) /* used to indicate bad return status  */
 #define MAXCOND 		(32)  	     /* Max number of elsif/when conditions */
@@ -121,12 +117,8 @@ void compileError(const char *fmt, ... )
 	
 	linenum = GetLineNum()+1;
 	charnum = GetCharNum();		
-#ifdef PALMOS
-	CompileErrorDialog(msg,linenum,charnum);
-#else
 	xprintf("compile error: %s\n",msg);
 	xprintf("near line: %d\n",linenum);
-#endif
 }
 
 /*---------------------*/

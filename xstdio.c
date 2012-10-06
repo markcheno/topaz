@@ -54,10 +54,6 @@
 #include "xstdio.h"
 #include "xstdlib.h"
 #include "xstring.h"
-#ifdef PALMOS
-#include "palm/palmide.h"
-#undef EOF
-#endif
 
 #define EOF (-1)
 
